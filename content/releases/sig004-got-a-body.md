@@ -13,7 +13,7 @@ remix_artists: []
 
 release_date: "2026-01-20"
 preorder_date: ""
-status: "upcoming"           # released | upcoming | promo-only
+status: "released"           # released | upcoming | promo-only
 
 genres:
   - "tech house"
@@ -43,7 +43,7 @@ tracks:
     remix_artists: []
     bpm: 130
     key: "E minor | 9A"
-    preview_url: ""
+    preview_url: "https://open.spotify.com/track/4bjUcG8HLCXtsOedzGt6by?si=2c28473c98804d73"
 
 ---
 

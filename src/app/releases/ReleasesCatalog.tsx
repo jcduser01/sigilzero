@@ -1,11 +1,16 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect, useRef } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 
 import type { ReleaseDocument } from "../../lib/content/load-releases";
 import type { SeriesRegistryItem } from "../../lib/content/load-series-registry";
 import type { ArtistDocument } from "../../lib/content/load-artists";
 import { filterReleases } from "../../lib/filters/releases";
+import {
+  releaseFiltersToSearchParams,
+  searchParamsToReleaseFilters,
+} from "../../lib/filters/serialize-filters";
 import ReleaseCard from "../../components/cards/ReleaseCard";
 import Section from "../../components/Section";
 import { MIN_BPM, MAX_BPM } from "../../lib/constants/bpm";
@@ -24,6 +29,10 @@ export default function ReleasesCatalog({
   artists,
   showSeriesFilter = true,
 }: Props) {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const hasInitializedFromUrl = useRef(false);
+
   const [query, setQuery] = useState("");
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [seriesId, setSeriesId] = useState<string>("all");
@@ -34,6 +43,48 @@ export default function ReleasesCatalog({
   const [year, setYear] = useState<string>("all");
   const [bpmMin, setBpmMin] = useState<string>("");
   const [bpmMax, setBpmMax] = useState<string>("");
+
+  // Initialize filters from URL on mount
+  useEffect(() => {
+    if (hasInitializedFromUrl.current) return;
+    hasInitializedFromUrl.current = true;
+
+    const urlFilters = searchParamsToReleaseFilters(searchParams);
+
+    if (urlFilters.query) setQuery(urlFilters.query);
+    if (urlFilters.seriesIds?.[0]) setSeriesId(urlFilters.seriesIds[0]);
+    if (urlFilters.types?.[0]) setType(urlFilters.types[0]);
+    if (urlFilters.artistIds?.[0]) setArtistId(urlFilters.artistIds[0]);
+    if (urlFilters.genres) setGenres(urlFilters.genres);
+    if (urlFilters.moods) setMoods(urlFilters.moods);
+    if (urlFilters.year) setYear(String(urlFilters.year));
+    if (urlFilters.bpmMin) setBpmMin(String(urlFilters.bpmMin));
+    if (urlFilters.bpmMax) setBpmMax(String(urlFilters.bpmMax));
+  }, [searchParams]);
+
+  // Sync filters to URL whenever any filter changes
+  useEffect(() => {
+    if (!hasInitializedFromUrl.current) return;
+
+    const params = releaseFiltersToSearchParams({
+      query: query || undefined,
+      seriesIds: seriesId !== "all" ? [seriesId] : undefined,
+      types: type !== "all" ? [type] : undefined,
+      artistIds: artistId !== "all" ? [artistId] : undefined,
+      genres: genres.length > 0 ? genres : undefined,
+      moods: moods.length > 0 ? moods : undefined,
+      year: year !== "all" ? parseInt(year, 10) : undefined,
+      bpmMin: bpmMin ? parseInt(bpmMin, 10) : undefined,
+      bpmMax: bpmMax ? parseInt(bpmMax, 10) : undefined,
+    });
+
+    const newUrl =
+      params.toString() === ""
+        ? window.location.pathname
+        : `${window.location.pathname}?${params.toString()}`;
+
+    router.replace(newUrl);
+  }, [query, seriesId, type, artistId, genres, moods, year, bpmMin, bpmMax, router]);
 
   const seriesById = useMemo(
     () => Object.fromEntries(seriesRegistry.map((s) => [s.id, s])),

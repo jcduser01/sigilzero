@@ -1,10 +1,15 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect, useRef } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 
 import type { MixtapeDocument } from "../../lib/content/load-mixtapes";
 import type { ArtistDocument } from "../../lib/content/load-artists";
 import { filterMixtapes } from "../../lib/filters/mixtapes";
+import {
+  mixtapeFiltersToSearchParams,
+  searchParamsToMixtapeFilters,
+} from "../../lib/filters/serialize-filters";
 import MixtapeCard from "../../components/cards/MixtapeCard";
 import Section from "../../components/Section";
 import FilterIcon from "../../components/icons/FilterIcon";
@@ -15,6 +20,10 @@ type Props = {
 };
 
 export default function MixtapesCatalog({ mixtapes, artists }: Props) {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const hasInitializedFromUrl = useRef(false);
+
   const [query, setQuery] = useState("");
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [artistId, setArtistId] = useState<string>("all");
@@ -23,6 +32,44 @@ export default function MixtapesCatalog({ mixtapes, artists }: Props) {
   const [moods, setMoods] = useState<string[]>([]);
   const [tags, setTags] = useState<string[]>([]);
   const [year, setYear] = useState<string>("all");
+
+  // Initialize filters from URL on mount
+  useEffect(() => {
+    if (hasInitializedFromUrl.current) return;
+    hasInitializedFromUrl.current = true;
+
+    const urlFilters = searchParamsToMixtapeFilters(searchParams);
+
+    if (urlFilters.query) setQuery(urlFilters.query);
+    if (urlFilters.artistIds?.[0]) setArtistId(urlFilters.artistIds[0]);
+    if (urlFilters.platforms?.[0]) setPlatform(urlFilters.platforms[0]);
+    if (urlFilters.genres) setGenres(urlFilters.genres);
+    if (urlFilters.moods) setMoods(urlFilters.moods);
+    if (urlFilters.tags) setTags(urlFilters.tags);
+    if (urlFilters.year) setYear(String(urlFilters.year));
+  }, [searchParams]);
+
+  // Sync filters to URL whenever any filter changes
+  useEffect(() => {
+    if (!hasInitializedFromUrl.current) return;
+
+    const params = mixtapeFiltersToSearchParams({
+      query: query || undefined,
+      artistIds: artistId !== "all" ? [artistId] : undefined,
+      platforms: platform !== "all" ? [platform] : undefined,
+      genres: genres.length > 0 ? genres : undefined,
+      moods: moods.length > 0 ? moods : undefined,
+      tags: tags.length > 0 ? tags : undefined,
+      year: year !== "all" ? parseInt(year, 10) : undefined,
+    });
+
+    const newUrl =
+      params.toString() === ""
+        ? window.location.pathname
+        : `${window.location.pathname}?${params.toString()}`;
+
+    router.replace(newUrl);
+  }, [query, artistId, platform, genres, moods, tags, year, router]);
 
   const artistById = useMemo(
     () => Object.fromEntries(artists.map((a) => [a.meta.id, a.meta])),

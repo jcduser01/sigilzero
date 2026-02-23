@@ -90,7 +90,7 @@ link_groups:
     label: "More Links"
     links: []
 
-  # SIG004 - Got a Body (Example - UPDATE BEATPORT URLS WHEN AVAILABLE)
+  # SIG004 - Got a Body
   SIG004-streaming:
     label: "Stream Got a Body"
     links:
@@ -118,5 +118,36 @@ link_groups:
         url: "https://dysonhope.bandcamp.com/track/got-a-body"
 
   SIG004-other:
+    label: "More Links"
+    links: []
+
+  # SIG005 - Edge of the Night
+  SIG005-streaming:
+    label: "Stream Edge of the Night"
+    links:
+      - name: "Spotify"
+        platform: "spotify"
+        url: ""
+      - name: "Apple Music"
+        platform: "apple music"
+        url: ""
+      - name: "YouTube Music"
+        platform: "youtube"
+        url: ""
+      - name: "SoundCloud"
+        platform: "soundcloud"
+        url: ""
+      - name: "Amazon Music"
+        platform: "amazon music"
+        url: ""
+
+  SIG005-purchase:
+    label: "Buy Edge of the Night"
+    links:
+      - name: "Bandcamp"
+        platform: "bandcamp"
+        url: ""
+
+  SIG005-other:
     label: "More Links"
     links: []

@@ -39,4 +39,4 @@ genres_primary:
   - "bass house"
 ---
 
-NOTOTO blends bass house, breakbeats, and rave nostalgia into high-energy sets built for packed dancefloors and late-night chaos.
+NOTOTO is an Austin-based DJ channeling bass house punch, breakbeat swagger, and rave-era chaos into high-voltage sets built for sweat-drenched nightclubs and secret underground floors. From festival stages to late-night warehouse sessions, his sound thrives where the lights are low and the system hits hard. On SIGIL.ZERO, he delivers unapologetic energy designed for bodies in motion.

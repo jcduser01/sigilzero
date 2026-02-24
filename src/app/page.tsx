@@ -32,9 +32,12 @@ export default function HomePage() {
   const seriesDocs = loadAllSeries();
   const seriesRegistry = loadSeriesRegistry();
 
+  // Flag to show/hide mixtapes section
+  const SHOW_MIXTAPES = false;
+
   const latestReleases = sortByDateDesc(releases, "release_date")
     .filter((r) => r.meta.active)
-    .slice(0, 2);
+    .slice(0, 4);
   const latestMixtapes = sortByDateDesc(mixtapes, "date")
     .filter((m) => m.meta.active)
     .slice(0, 2);
@@ -111,7 +114,7 @@ export default function HomePage() {
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
               {latestReleases.map((release) => (
                 <ReleaseCard
                   key={release.meta.slug}
@@ -130,7 +133,7 @@ export default function HomePage() {
       )}
 
       {/* LATEST MIXTAPES */}
-      {latestMixtapes.length > 0 && (
+      {SHOW_MIXTAPES && latestMixtapes.length > 0 && (
         <Section>
           <div className="px-4 container-sigil sm:px-6 lg:px-8">
             <div className="flex items-baseline justify-between mb-3">

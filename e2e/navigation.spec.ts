@@ -91,7 +91,7 @@ test.describe('Navigation', () => {
     
     // Check for main homepage sections
     await expect(page.locator('h2:has-text("Latest Releases")')).toBeVisible();
-    await expect(page.locator('h2:has-text("Latest Mixtapes")')).toBeVisible();
+    // Mixtapes section is currently hidden via flag
     await expect(page.locator('h2:has-text("Artists")')).toBeVisible();
   });
 });

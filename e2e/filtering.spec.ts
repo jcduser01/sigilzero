@@ -7,11 +7,11 @@ test.describe('Releases Filtering', () => {
     await expect(page.locator('h1:has-text("404")')).not.toBeVisible();
     await expect(page.locator('h1:has-text("Error")')).not.toBeVisible();
     // Wait for catalog page to load
-    await page.getByTestId('releases-page-title').waitFor();
+    await page.getByTestId('releases-page-title').first().waitFor();
   });
 
   test('should display releases page with filters', async ({ page }) => {
-    await expect(page.getByTestId('releases-page-title')).toBeVisible();
+    await expect(page.getByTestId('releases-page-title').first()).toBeVisible();
     
     // Check if filter inputs are visible
     await expect(page.locator('input[placeholder*="Search"]')).toBeVisible();
@@ -135,11 +135,11 @@ test.describe('Mixtapes Filtering', () => {
     await expect(page.locator('h1:has-text("404")')).not.toBeVisible();
     await expect(page.locator('h1:has-text("Error")')).not.toBeVisible();
     // Wait for catalog page to load
-    await page.getByTestId('mixtapes-page-title').waitFor();
+    await page.getByTestId('mixtapes-page-title').first().waitFor();
   });
 
   test('should display mixtapes page with filters', async ({ page }) => {
-    await expect(page.getByTestId('mixtapes-page-title')).toBeVisible();
+    await expect(page.getByTestId('mixtapes-page-title').first()).toBeVisible();
     await expect(page.locator('input[placeholder*="Search"]')).toBeVisible();
   });
 

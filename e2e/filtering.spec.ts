@@ -14,11 +14,11 @@ test.describe('Releases Filtering', () => {
     await expect(page.getByTestId('releases-page-title').first()).toBeVisible();
     
     // Check if filter inputs are visible
-    await expect(page.locator('input[placeholder*="Search"]')).toBeVisible();
+    await expect(page.locator('input[placeholder*="Search"]').first()).toBeVisible();
   });
 
   test('should filter releases by search query', async ({ page }) => {
-    const searchInput = page.locator('input[placeholder*="Search"]');
+    const searchInput = page.locator('input[placeholder*="Search"]').first();
     
     // Get initial count of releases
     const initialCards = await page.locator('[class*="grid"] > div').count();
@@ -101,7 +101,7 @@ test.describe('Releases Filtering', () => {
   });
 
   test('should clear filters', async ({ page }) => {
-    const searchInput = page.locator('input[placeholder*="Search"]');
+    const searchInput = page.locator('input[placeholder*="Search"]').first();
     
     // Apply a filter
     await searchInput.fill('Test');
@@ -118,7 +118,7 @@ test.describe('Releases Filtering', () => {
 
   test('should show filtered count', async ({ page }) => {
     // Apply a filter to trigger the count display
-    const searchInput = page.locator('input[placeholder*="Search"]');
+    const searchInput = page.locator('input[placeholder*="Search"]').first();
     await searchInput.fill('test');
     await page.waitForTimeout(500);
     
@@ -140,11 +140,11 @@ test.describe('Mixtapes Filtering', () => {
 
   test('should display mixtapes page with filters', async ({ page }) => {
     await expect(page.getByTestId('mixtapes-page-title').first()).toBeVisible();
-    await expect(page.locator('input[placeholder*="Search"]')).toBeVisible();
+    await expect(page.locator('input[placeholder*="Search"]').first()).toBeVisible();
   });
 
   test('should filter mixtapes by search query', async ({ page }) => {
-    const searchInput = page.locator('input[placeholder*="Search"]');
+    const searchInput = page.locator('input[placeholder*="Search"]').first();
     
     const initialCards = await page.locator('[class*="grid"] > div').count();
     

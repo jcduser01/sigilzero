@@ -13,8 +13,8 @@ genres:
   - "Tech House"
   - "Progressive House"
 moods: 
-  - "emotional"
-  - "uplifting"
+  - "peakitime"
+  - "futuristic"
   - "immersive"
 featured: false
 active: true

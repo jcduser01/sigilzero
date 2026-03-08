@@ -113,10 +113,13 @@ link_groups:
   SIG004-purchase:
     label: "Buy Got a Body"
     links:
+      - name: "Beatport"
+        platform: "beatport"
+        url: "https://www.beatport.com/track/got-a-body/25427204"
       - name: "Bandcamp"
         platform: "bandcamp"
         url: "https://dysonhope.bandcamp.com/track/got-a-body"
-
+ 
   SIG004-other:
     label: "More Links"
     links: []

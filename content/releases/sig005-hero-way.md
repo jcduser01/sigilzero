@@ -41,7 +41,7 @@ tracks:
     primary_artists:
       - "b-squared"
     remix_artists: []
-    bpm: 130
+    bpm: 128
     key: "G minor | 6A"
     preview_url: ""
 

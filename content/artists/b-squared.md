@@ -1,7 +1,7 @@
 ---
 id: "b-squared"
 slug: "b-squared"
-name: "B²"
+name: "BELLA~B"
 order: 1
 
 roles:
@@ -20,8 +20,11 @@ instagram_handle: "dj.bellab.ig"
 social:
   instagram: "https://instagram.com/dj.bellab.ig"
   soundcloud: "https://soundcloud.com/djbellab"
+  other:
+    - title: "Website"
+      url: "https://djbellab.com"
 
-booking_email: "dj.bellab.ig@gmail.com"
+booking_email: "booking@djbellab.com"
 
 label_join_year: 2026
 active: true
@@ -39,8 +42,8 @@ genres_primary:
   - "melodic techno"
 ---
 
-B² brings clarity, lift, and emotional intelligence to the dancefloor. A fixture of the Denver scene for years, her sets and productions are defined by forward motion that feels earned—melodic without being indulgent, driving without becoming blunt.
+BELLA~B (AKA B²) brings clarity, lift, and emotional intelligence to the dancefloor. A fixture of the Denver scene for years, her sets and productions are defined by forward motion that feels earned—melodic without being indulgent, driving without becoming blunt.
 
 Her sound lives in the space where progressive house and melodic techno intersect: long arcs, patient builds, and moments that land with warmth instead of force. There’s a sense of trust in her pacing—music that invites dancers in rather than overwhelming them.
 
-On SIGIL.ZERO, B² translates that DJ sensibility into releases that feel intentional, human, and quietly powerful, tracks designed to move bodies while leaving space for feeling.
+On SIGIL.ZERO, BELLA~B translates that DJ sensibility into releases that feel intentional, human, and quietly powerful, tracks designed to move bodies while leaving space for feeling.

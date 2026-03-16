@@ -154,3 +154,34 @@ link_groups:
   SIG005-other:
     label: "More Links"
     links: []
+
+  # SIG006 - HerO Way
+  SIG006-streaming:
+    label: "Stream HerO Way"
+    links:
+      - name: "Spotify"
+        platform: "spotify"
+        url: ""
+      - name: "Apple Music"
+        platform: "apple music"
+        url: ""
+      - name: "YouTube Music"
+        platform: "youtube"
+        url: ""
+      - name: "SoundCloud"
+        platform: "soundcloud"
+        url: ""
+      - name: "Amazon Music"
+        platform: "amazon music"
+        url: ""
+
+  SIG006-purchase:
+    label: "Buy HerO Way"
+    links:
+      - name: "Bandcamp"
+        platform: "bandcamp"
+        url: ""
+
+  SIG006-other:
+    label: "More Links"
+    links: []

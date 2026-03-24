@@ -1,8 +1,8 @@
 ---
 catalog_number: "SIG007"
-id: "edge-of-the-night"
-slug: "edge-of-the-night"
-title: "Edge of the Night"
+id: "bounce-ritual"
+slug: "bounce-ritual"
+title: "Bounce Ritual"
 
 type: "single"
 series_id: "core"

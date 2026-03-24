@@ -12,6 +12,8 @@
     "prepare": "husky",
     "validate:content": "npm run check-frontmatter && node ./scripts/validate-mixtapes.mjs && node ./scripts/validate-releases.mjs && node ./scripts/validate-artists.mjs && node ./scripts/validate-series.mjs",
     "validate:quick": "npm run check-frontmatter && node ./scripts/validate-mixtapes.mjs",
+    "prepush:local": "npm run validate:content && npm run test:run",
+    "prepush:full": "npm run validate:content && npm run test:run && npm run e2e",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage",

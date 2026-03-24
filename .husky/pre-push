@@ -1,7 +1,15 @@
 #!/bin/sh
-# Full validations, unit tests, and E2E tests before push
+# Reliable pre-push checks by default.
+# Run full E2E checks only when explicitly requested:
+#   RUN_E2E_ON_PUSH=1 git push
 npm run validate:content || exit 1
 npm run test:run || exit 1
-npm run e2e || exit 1
+
+if [ "$RUN_E2E_ON_PUSH" = "1" ]; then
+	echo "RUN_E2E_ON_PUSH=1 detected: running Playwright E2E checks"
+	npm run e2e || exit 1
+else
+	echo "Skipping E2E in pre-push (set RUN_E2E_ON_PUSH=1 to enable)"
+fi
 
 exit 0

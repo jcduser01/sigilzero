@@ -94,6 +94,21 @@ This repository uses Husky to enforce validation and tests during development:
 
 - Pre-commit: runs frontmatter + mixtape validation.
 - Pre-push: runs full content validation and unit tests.
+- Pre-push E2E: optional, enabled with `RUN_E2E_ON_PUSH=1`.
+
+Default pre-push checks match:
+
+```bash
+npm run prepush:local
+```
+
+Run all checks (including E2E) manually before larger merges/releases:
+
+```bash
+npm run prepush:full
+# or
+RUN_E2E_ON_PUSH=1 git push
+```
 
 Bypass hooks only if necessary:
 

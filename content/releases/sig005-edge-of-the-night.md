@@ -13,7 +13,7 @@ remix_artists: []
 
 release_date: "2026-03-24"
 preorder_date: ""
-status: "upcoming"           # released | upcoming | promo-only
+status: "released"           # released | upcoming | promo-only
 
 genres:
   - "progressive tech house"

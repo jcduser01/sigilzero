@@ -130,26 +130,29 @@ link_groups:
     links:
       - name: "Spotify"
         platform: "spotify"
-        url: ""
+        url: "https://open.spotify.com/track/7cIyq5iYjSSG0cHO0xNVAW?si=136d234d3b6b479e"
       - name: "Apple Music"
         platform: "apple music"
-        url: ""
+        url: "https://music.apple.com/us/song/edge-of-the-night/1880216606"
       - name: "YouTube Music"
         platform: "youtube"
-        url: ""
+        url: "https://youtu.be/ci0OXIgClxk"
       - name: "SoundCloud"
         platform: "soundcloud"
-        url: ""
+        url: "https://soundcloud.com/dyson-hope/edge-of-the-night"
       - name: "Amazon Music"
         platform: "amazon music"
-        url: ""
+        url: "https://music.amazon.com/albums/B0GQ72P3Z1"
 
   SIG005-purchase:
     label: "Buy Edge of the Night"
     links:
+      - name: "Beatport"
+        platform: "beatport"
+        url: "https://www.beatport.com/release/edge-of-the-night/6130961"
       - name: "Bandcamp"
         platform: "bandcamp"
-        url: ""
+        url: "https://dysonhope.bandcamp.com/track/edge-of-the-night"
 
   SIG005-other:
     label: "More Links"
@@ -178,10 +181,47 @@ link_groups:
   SIG006-purchase:
     label: "Buy HerO Way"
     links:
+      - name: "Beatport"
+        platform: "beatport"
+        url: ""
       - name: "Bandcamp"
         platform: "bandcamp"
         url: ""
 
   SIG006-other:
+    label: "More Links"
+    links: []
+
+  # SIG007 - Bounce Ritual
+  SIG007-streaming:
+    label: "Stream Bounce Ritual"
+    links:
+      - name: "Spotify"
+        platform: "spotify"
+        url: ""
+      - name: "Apple Music"
+        platform: "apple music"
+        url: ""
+      - name: "YouTube Music"
+        platform: "youtube"
+        url: ""
+      - name: "SoundCloud"
+        platform: "soundcloud"
+        url: ""
+      - name: "Amazon Music"
+        platform: "amazon music"
+        url: ""
+
+  SIG007-purchase:
+    label: "Buy Bounce Ritual"
+    links:
+      - name: "Beatport"
+        platform: "beatport"
+        url: ""
+      - name: "Bandcamp"
+        platform: "bandcamp"
+        url: ""
+
+  SIG007-other:
     label: "More Links"
     links: []

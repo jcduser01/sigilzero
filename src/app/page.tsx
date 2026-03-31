@@ -26,6 +26,29 @@ function sortByDateDesc<T extends { meta: { release_date?: string; date?: string
 }
 
 export default function HomePage() {
+  const connectLinks = [
+    {
+      label: "Instagram",
+      href: "https://www.instagram.com/SIGIL.ZERO.RECORDS",
+      icon: "/assets/images/icons/icon-instagram.svg",
+    },
+    {
+      label: "SoundCloud",
+      href: "https://soundcloud.com/sigil-zero",
+      icon: "/assets/images/icons/icon-soundcloud.svg",
+    },
+    {
+      label: "Beatport",
+      href: "https://www.beatport.com/label/sigilzero/361999",
+      icon: "/assets/images/icons/icon-beatport.svg",
+    },
+    {
+      label: "Facebook",
+      href: "https://www.facebook.com/SIGIL.ZERO",
+      icon: "/assets/images/icons/icon-facebook.svg",
+    },
+  ] as const;
+
   const releases = loadAllReleases();
   const mixtapes = loadAllMixtapes();
   const artists = loadAllArtists();
@@ -91,6 +114,26 @@ export default function HomePage() {
             >
               Explore the roster
             </Link>
+          </div>
+
+          <div className="mt-4 flex items-center justify-center gap-2.5">
+            {connectLinks.map((link) => (
+              <a
+                key={`hero-${link.label}`}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.label}
+                className="group inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-600 text-white transition-colors duration-200 hover:border-white hover:bg-white hover:text-black"
+              >
+                <img
+                  src={link.icon}
+                  alt=""
+                  aria-hidden="true"
+                  className="h-4 w-4 invert transition-[filter] duration-200 group-hover:invert-0"
+                />
+              </a>
+            ))}
           </div>
         </div>
       </Section>
@@ -220,6 +263,28 @@ export default function HomePage() {
       {/* PRESS / DEMO CTA */}
       <Section>
         <div className="px-4 container-sigil sm:px-6 lg:px-8">
+          <h2 className="mb-4 h-md">Connect</h2>
+
+          <div className="grid grid-cols-1 gap-3 mb-8 sm:grid-cols-2 lg:grid-cols-4">
+            {connectLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center justify-center gap-2 rounded-full border border-gray-600 px-4 py-3 text-sm font-medium text-white transition-colors duration-200 hover:border-white hover:bg-white hover:text-black"
+              >
+                <img
+                  src={link.icon}
+                  alt=""
+                  aria-hidden="true"
+                  className="h-4 w-4 invert transition-[filter] duration-200 group-hover:invert-0"
+                />
+                <span>{link.label}</span>
+              </a>
+            ))}
+          </div>
+
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             <div>
               <h3 className="mb-3 text-lg font-semibold">

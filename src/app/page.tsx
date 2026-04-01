@@ -90,7 +90,7 @@ export default function HomePage() {
           <h1 className="flex items-center justify-center mb-3">
             <span className="sr-only">SIGIL.ZERO</span>
             <img
-              src="./assets/images/site_elements/logos/SZLogo_wide-WonB-1600.png"
+              src="./assets/images/site_elements/logos/SZLogo_wide-Wtrans-1600.png"
               alt=""
               aria-hidden="true"
               className="w-auto h-fit"
@@ -124,7 +124,7 @@ export default function HomePage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={link.label}
-                className="group inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-600 text-white transition-colors duration-200 hover:border-white hover:bg-white hover:text-black"
+                className="inline-flex items-center justify-center text-white transition-colors duration-200 border border-gray-600 rounded-full group h-9 w-9 hover:border-white hover:bg-white hover:text-black"
               >
                 <img
                   src={link.icon}
@@ -272,7 +272,7 @@ export default function HomePage() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-2 rounded-full border border-gray-600 px-4 py-3 text-sm font-medium text-white transition-colors duration-200 hover:border-white hover:bg-white hover:text-black"
+                className="inline-flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium text-white transition-colors duration-200 border border-gray-600 rounded-full group hover:border-white hover:bg-white hover:text-black"
               >
                 <img
                   src={link.icon}

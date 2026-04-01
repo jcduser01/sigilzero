@@ -4,8 +4,8 @@ import PlaceholderImage from "../PlaceholderImage";
 
 export default function ArtistAssetCard({ artist }: { artist: Artist }) {
   return (
-    <div className="bg-gray-900 rounded border border-gray-800 overflow-hidden">
-      <div className="relative w-full h-56 bg-gray-800">
+    <div className="bg-sigil-grey-900 rounded border border-gray-800 overflow-hidden">
+      <div className="relative w-full h-56 bg-sigil-grey-800">
         <PlaceholderImage
           src={artist.photo}
           alt={artist.name}

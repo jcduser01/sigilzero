@@ -12,7 +12,7 @@ export default function SeriesCard({ series }: Props) {
   return (
     <Card href={`/series/${series.slug}`} data-testid="series-card">
       <div>
-        <div className="relative w-full aspect-square overflow-hidden bg-gray-900">
+        <div className="relative w-full aspect-square overflow-hidden bg-sigil-grey-900">
           {series.glyph ? (
             <PlaceholderImage
               src={series.glyph}

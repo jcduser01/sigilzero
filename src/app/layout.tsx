@@ -66,7 +66,7 @@ export default function RootLayout({
 
           <AudioPlayer />
 
-          <footer className="mt-16 border-t border-gray-800 bg-gray-950">
+          <footer className="mt-16 border-t border-gray-800 bg-sigil-grey-950">
             <div className="py-12 container-sigil">
               <div className="grid grid-cols-1 gap-8 mb-8 md:grid-cols-3">
                 {/* About Column */}

@@ -29,13 +29,13 @@ export default function GlobalError({
             <div className="flex flex-wrap justify-center gap-3">
               <button
                 onClick={reset}
-                className="px-6 py-3 text-sm font-medium text-white transition-colors bg-gray-900 border border-gray-700 rounded hover:bg-gray-800"
+                className="px-6 py-3 text-sm font-medium text-white transition-colors bg-sigil-grey-900 border border-gray-700 rounded hover:bg-sigil-grey-800"
               >
                 Retry
               </button>
               <Link
                 href="/"
-                className="px-6 py-3 text-sm font-medium text-white transition-colors bg-gray-900 border border-gray-700 rounded hover:bg-gray-800"
+                className="px-6 py-3 text-sm font-medium text-white transition-colors bg-sigil-grey-900 border border-gray-700 rounded hover:bg-sigil-grey-800"
               >
                 Return to SIGIL.ZERO
               </Link>

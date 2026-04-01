@@ -10,7 +10,7 @@ export default function LogoGrid() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
       {logos.map((l) => (
-        <div key={l.href} className="bg-gray-900 p-4 rounded border border-gray-800 flex flex-col items-center gap-3">
+        <div key={l.href} className="bg-sigil-grey-900 p-4 rounded border border-gray-800 flex flex-col items-center gap-3">
           <div className="w-full h-24 flex items-center justify-center">
             <img src={l.href} alt={l.name} className="max-h-20" />
           </div>

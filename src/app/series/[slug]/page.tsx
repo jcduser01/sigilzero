@@ -41,7 +41,7 @@ export default async function SeriesPage({ params }: ParamsPromise) {
       <Section>
         <div className="container-sigil px-4 sm:px-6 lg:px-8">
           {meta.glyph ? (
-            <div className="relative w-full h-64 mb-6 overflow-hidden rounded-lg bg-gray-900">
+            <div className="relative w-full h-64 mb-6 overflow-hidden rounded-lg bg-sigil-grey-900">
               <PlaceholderImage
                 src={meta.glyph}
                 alt={meta.name}

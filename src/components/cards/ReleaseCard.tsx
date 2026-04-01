@@ -36,7 +36,7 @@ export default function ReleaseCard({ release, series, artists }: Props) {
   return (
     <Card href={`/releases/${release.slug}`}>
       <div>
-        <div className="relative w-full overflow-hidden bg-gray-900 aspect-square">
+        <div className="relative w-full overflow-hidden bg-sigil-grey-900 aspect-square">
           <PlaceholderImage
             src={release.cover_art}
             alt={release.title}

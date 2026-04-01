@@ -18,7 +18,7 @@ export default function InstagramFeed({ posts }: { posts: InstagramPost[] }) {
             target="_blank"
             rel="noopener noreferrer"
             title="View on Instagram"
-            className="group relative overflow-hidden rounded-lg aspect-square bg-gray-900 hover:opacity-80 transition-opacity"
+            className="group relative overflow-hidden rounded-lg aspect-square bg-sigil-grey-900 hover:opacity-80 transition-opacity"
           >
             {post.media_type === "IMAGE" || post.media_type === "CAROUSEL_ALBUM" ? (
               <PlaceholderImage

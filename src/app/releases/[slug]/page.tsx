@@ -61,7 +61,7 @@ export default async function ReleasePage({ params }: ParamsPromise) {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
             {/* Left column: Image */}
             <div className="flex items-center">
-              <div className="relative w-full overflow-hidden bg-gray-900 rounded-lg aspect-square">
+              <div className="relative w-full overflow-hidden bg-sigil-grey-900 rounded-lg aspect-square">
                 <PlaceholderImage
                   src={meta.cover_art}
                   alt={meta.title}

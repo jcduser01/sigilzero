@@ -35,7 +35,7 @@ export default function CalendarPage() {
           </p>
 
           {/* Fallback message */}
-          <div className="p-6 bg-gray-950 border border-gray-800 rounded-lg">
+          <div className="p-6 bg-sigil-grey-950 border border-gray-800 rounded-lg">
             <p className="text-sm text-gray-300 mb-4">
               If you are not redirected automatically within a few seconds,{" "}
               <a

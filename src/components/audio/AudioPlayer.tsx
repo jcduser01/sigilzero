@@ -29,7 +29,7 @@ function SimpleWaveform({ progress }: { progress: number }) {
         return (
           <div
             key={i}
-            className={`w-0.5 rounded-full transition-colors ${isPlayed ? "bg-white" : "bg-gray-600"} ${heightClass}`}
+            className={`w-0.5 rounded-full transition-colors ${isPlayed ? "bg-white" : "bg-sigil-grey-600"} ${heightClass}`}
           />
         );
       })}
@@ -77,7 +77,7 @@ export default function AudioPlayer() {
 
             <button
               onClick={toggle}
-              className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center hover:bg-gray-200 transition-colors transform hover:scale-110"
+              className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center hover:bg-sigil-grey-200 transition-colors transform hover:scale-110"
             >
               {playing ? "❚❚" : "▶"}
             </button>

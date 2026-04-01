@@ -113,7 +113,7 @@ export default function PressKitPage() {
             <p className="mb-2">Highlight release from the catalog:</p>
 
             {flagship && (
-              <div className="p-3 text-sm border border-gray-800 rounded-lg bg-gray-950">
+              <div className="p-3 text-sm border border-gray-800 rounded-lg bg-sigil-grey-950">
                 <div className="mb-1 text-xs opacity-70">{flagship?.meta.catalog_number}</div>
                 <div className="mb-1">{flagship?.meta.title}</div>
                 <div className="mb-2 text-xs opacity-75">{flagship?.meta.release_date}</div>

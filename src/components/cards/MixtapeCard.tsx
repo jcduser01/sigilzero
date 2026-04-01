@@ -14,7 +14,7 @@ export default function MixtapeCard({ mixtape, artist }: Props) {
   return (
     <Card href={`/mixtapes/${mixtape.slug}`}>
       <div>
-        <div className="relative w-full aspect-square overflow-hidden bg-gray-900">
+        <div className="relative w-full aspect-square overflow-hidden bg-sigil-grey-900">
           <PlaceholderImage
             src={mixtape.cover_image}
             alt={mixtape.title}

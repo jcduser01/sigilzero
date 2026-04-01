@@ -29,12 +29,8 @@ export default function ArtistCard({ artist }: Props) {
             {artist.name}
           </h3>
 
-          <div className="mb-2 text-sm text-muted">
-            {artist.roles.join(" / ")}
-          </div>
-
           {artist.location && (
-            <div className="text-xs text-gray-600">
+            <div className="mb-2 text-sm text-muted">
               {artist.location}
             </div>
           )}

@@ -22,15 +22,11 @@ describe('ArtistCard', () => {
     expect(screen.getByText('Test Artist')).toBeInTheDocument();
   });
 
-  it('should render artist roles separated by slash', () => {
+  it('should not render artist roles text', () => {
     render(<ArtistCard artist={mockArtist} />);
-    expect(screen.getByText('producer / dj')).toBeInTheDocument();
-  });
-
-  it('should render single role', () => {
-    const singleRole = { ...mockArtist, roles: ['producer' as const] };
-    render(<ArtistCard artist={singleRole} />);
-    expect(screen.getByText('producer')).toBeInTheDocument();
+    expect(screen.queryByText('producer / dj')).not.toBeInTheDocument();
+    expect(screen.queryByText('producer')).not.toBeInTheDocument();
+    expect(screen.queryByText('dj')).not.toBeInTheDocument();
   });
 
   it('should render location when present', () => {

@@ -73,7 +73,7 @@ export default function ReleaseCard({ release, series, artists }: Props) {
           )}
 
           <div className="text-sm text-muted">
-            {(release.type?.[0]?.toUpperCase() + release.type?.slice(1))} • {release.release_date}
+            {series?.name || release.series_id} • {(release.type?.[0]?.toUpperCase() + release.type?.slice(1))} • {release.release_date}
           </div>
         </div>
       </div>

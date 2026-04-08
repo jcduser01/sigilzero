@@ -225,3 +225,37 @@ link_groups:
   SIG007-other:
     label: "More Links"
     links: []
+
+  # SIG008 - Afterphase
+  SIG008-streaming:
+    label: "Stream Afterphase"
+    links:
+      - name: "Spotify"
+        platform: "spotify"
+        url: ""
+      - name: "Apple Music"
+        platform: "apple music"
+        url: ""
+      - name: "YouTube Music"
+        platform: "youtube"
+        url: ""
+      - name: "SoundCloud"
+        platform: "soundcloud"
+        url: ""
+      - name: "Amazon Music"
+        platform: "amazon music"
+        url: ""
+
+  SIG008-purchase:
+    label: "Buy Afterphase"
+    links:
+      - name: "Beatport"
+        platform: "beatport"
+        url: ""
+      - name: "Bandcamp"
+        platform: "bandcamp"
+        url: ""
+
+  SIG008-other:
+    label: "More Links"
+    links: []

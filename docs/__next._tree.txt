@@ -8,4 +8,4 @@
 :HL["/assets/images/icons/icon-soundcloud.svg","image"]
 :HL["/assets/images/icons/icon-beatport.svg","image"]
 :HL["/assets/images/icons/icon-facebook.svg","image"]
-0:{"buildId":"Fr0jk4D79zy15R3PnA0LR","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"g-WOXshTVbBxs5Ycdie2N","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

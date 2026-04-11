@@ -18,7 +18,7 @@ status: "upcoming"           # released | upcoming | promo-only
 genres:
   - "progressive tech house"
 moods:
-  - "melodig"
+  - "melodic"
   - "driving"
   - "warehouse"
 

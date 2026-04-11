@@ -259,3 +259,37 @@ link_groups:
   SIG008-other:
     label: "More Links"
     links: []
+
+# SIG009 - Drums in the Deep
+  SIG009-streaming:
+    label: "Stream Drums in the Deep"
+    links:
+      - name: "Spotify"
+        platform: "spotify"
+        url: ""
+      - name: "Apple Music"
+        platform: "apple music"
+        url: ""
+      - name: "YouTube Music"
+        platform: "youtube"
+        url: ""
+      - name: "SoundCloud"
+        platform: "soundcloud"
+        url: ""
+      - name: "Amazon Music"
+        platform: "amazon music"
+        url: ""
+
+  SIG009-purchase:
+    label: "Buy Drums in the Deep"
+    links:
+      - name: "Beatport"
+        platform: "beatport"
+        url: ""
+      - name: "Bandcamp"
+        platform: "bandcamp"
+        url: ""
+
+  SIG009-other:
+    label: "More Links"
+    links: []

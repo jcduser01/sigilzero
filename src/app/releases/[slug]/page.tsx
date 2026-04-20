@@ -104,6 +104,7 @@ export default async function ReleasePage({ params }: ParamsPromise) {
               <StreamingLinks
                 streamingGroup={streamingGroup}
                 purchaseGroup={purchaseGroup}
+                disabled={status.type === "coming-soon"}
               />
             </div>
           </div>

@@ -4,23 +4,28 @@ import { platformLogos } from "./PlatformLogos";
 type StreamingLinksProps = {
   streamingGroup?: LinkGroup | null;
   purchaseGroup?: LinkGroup | null;
+  disabled?: boolean;
 };
 
 export default function StreamingLinks({
   streamingGroup,
   purchaseGroup,
+  disabled = false,
 }: StreamingLinksProps) {
-  // Filter out links with empty URLs
-  const streamingLinks = (streamingGroup?.links ?? []).filter(
-    (link) => link.url && link.url.trim() !== ""
-  );
-  const purchaseLinks = (purchaseGroup?.links ?? []).filter(
-    (link) => link.url && link.url.trim() !== ""
-  );
+  // When disabled, include all links (even empty URLs) to show the full button set
+  const streamingLinks = disabled
+    ? (streamingGroup?.links ?? [])
+    : (streamingGroup?.links ?? []).filter((link) => link.url && link.url.trim() !== "");
+  const purchaseLinks = disabled
+    ? (purchaseGroup?.links ?? [])
+    : (purchaseGroup?.links ?? []).filter((link) => link.url && link.url.trim() !== "");
 
   if (streamingLinks.length === 0 && purchaseLinks.length === 0) {
     return null;
   }
+
+  const disabledButtonClass = "inline-flex items-center gap-2 px-4 py-2 text-sm border border-gray-700 rounded-lg opacity-40 cursor-not-allowed";
+  const activeButtonClass = "inline-flex items-center gap-2 px-4 py-2 text-sm transition-colors border border-gray-700 rounded-lg hover:bg-sigil-grey-800 hover:border-gray-600";
 
   return (
     <div className="space-y-4">
@@ -33,23 +38,32 @@ export default function StreamingLinks({
             {streamingLinks.map((link, idx) => {
               const platform = link.platform?.toLowerCase() || link.name.toLowerCase();
               const logo = platformLogos[platform];
-
-              return (
-                <a
-                  key={idx}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 text-sm transition-colors border border-gray-700 rounded-lg hover:bg-sigil-grey-800 hover:border-gray-600"
-                  title={link.name}
-                >
+              const inner = (
+                <>
                   {logo ? (
                     <div className="flex items-center justify-center">{logo}</div>
                   ) : (
                     <span>🎵</span>
                   )}
                   <span>{link.name}</span>
-                  <span className="text-xs opacity-60">↗</span>
+                  {!disabled && <span className="text-xs opacity-60">↗</span>}
+                </>
+              );
+
+              return disabled ? (
+                <span key={idx} className={disabledButtonClass} title={link.name}>
+                  {inner}
+                </span>
+              ) : (
+                <a
+                  key={idx}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={activeButtonClass}
+                  title={link.name}
+                >
+                  {inner}
                 </a>
               );
             })}
@@ -66,23 +80,32 @@ export default function StreamingLinks({
             {purchaseLinks.map((link, idx) => {
               const platform = link.platform?.toLowerCase() || link.name.toLowerCase();
               const logo = platformLogos[platform];
-
-              return (
-                <a
-                  key={idx}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 text-sm transition-colors border border-gray-700 rounded-lg hover:bg-sigil-grey-800 hover:border-gray-600"
-                  title={link.name}
-                >
+              const inner = (
+                <>
                   {logo ? (
                     <div className="flex items-center justify-center">{logo}</div>
                   ) : (
                     <span>💿</span>
                   )}
                   <span>{link.name}</span>
-                  <span className="text-xs opacity-60">↗</span>
+                  {!disabled && <span className="text-xs opacity-60">↗</span>}
+                </>
+              );
+
+              return disabled ? (
+                <span key={idx} className={disabledButtonClass} title={link.name}>
+                  {inner}
+                </span>
+              ) : (
+                <a
+                  key={idx}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={activeButtonClass}
+                  title={link.name}
+                >
+                  {inner}
                 </a>
               );
             })}

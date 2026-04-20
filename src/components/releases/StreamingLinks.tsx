@@ -24,7 +24,7 @@ export default function StreamingLinks({
     return null;
   }
 
-  const disabledButtonClass = "inline-flex items-center gap-2 px-4 py-2 text-sm border border-gray-700 rounded-lg opacity-40 cursor-not-allowed";
+  const disabledButtonClass = "inline-flex items-center gap-2 px-4 py-2 text-sm border border-gray-800 rounded-lg opacity-35 cursor-not-allowed text-gray-600";
   const activeButtonClass = "inline-flex items-center gap-2 px-4 py-2 text-sm transition-colors border border-gray-700 rounded-lg hover:bg-sigil-grey-800 hover:border-gray-600";
 
   return (

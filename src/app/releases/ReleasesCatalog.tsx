@@ -207,7 +207,7 @@ export default function ReleasesCatalog({
             aria-expanded={filtersOpen}
             aria-controls="releases-filters"
             onClick={() => setFiltersOpen((o) => !o)}
-            className="flex items-center gap-2 text-xs font-medium tracking-wide uppercase text-gray-400 hover:text-white"
+            className="flex items-center gap-2 text-xs font-medium tracking-wide text-gray-400 uppercase hover:text-white"
           >
             <FilterIcon className="w-5 h-5" />
             {filtersOpen ? "Hide Filters" : "More Filters"}
@@ -357,7 +357,7 @@ export default function ReleasesCatalog({
 
       {/* Active filters display and clear button */}
       {isFiltered && (
-        <div className="p-3 mb-6 bg-sigil-grey-900 border border-gray-800 rounded">
+        <div className="p-3 mb-6 border border-gray-800 rounded bg-sigil-grey-900">
           <div className="flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center">
             <div className="text-sm text-gray-300">
               Showing <span className="font-semibold">{filtered.length}</span> of{" "}
@@ -365,7 +365,7 @@ export default function ReleasesCatalog({
             </div>
             <button
               onClick={clearFilters}
-              className="px-3 py-1 text-sm text-white transition-colors bg-sigil-grey-800 border border-gray-700 rounded hover:bg-sigil-grey-700"
+              className="px-3 py-1 text-sm text-white transition-colors border border-gray-700 rounded bg-sigil-grey-800 hover:bg-sigil-grey-700"
             >
               Clear filters
             </button>

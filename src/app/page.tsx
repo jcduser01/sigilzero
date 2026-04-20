@@ -58,8 +58,16 @@ export default function HomePage() {
   // Flag to show/hide mixtapes section
   const SHOW_MIXTAPES = false;
 
-  const latestReleases = sortByDateDesc(releases, "release_date")
-    .filter((r) => r.meta.active)
+  const sortedActiveReleases = sortByDateDesc(releases, "release_date")
+    .filter((r) => r.meta.active);
+
+  const newReleases = sortedActiveReleases
+    .filter((r) => r.meta.status !== "upcoming")
+    .slice(0, 4);
+
+  const comingSoonReleases = sortByDateDesc(releases, "release_date")
+    .filter((r) => r.meta.active && r.meta.status === "upcoming")
+    .reverse()
     .slice(0, 4);
   const latestMixtapes = sortByDateDesc(mixtapes, "date")
     .filter((m) => m.meta.active)
@@ -139,38 +147,69 @@ export default function HomePage() {
       </Section>
 
       {/* LATEST RELEASES */}
-      {latestReleases.length > 0 && (
+      {(newReleases.length > 0 || comingSoonReleases.length > 0) && (
         <Section>
           <div className="px-4 container-sigil sm:px-6 lg:px-8">
-            <div className="flex items-baseline justify-between mb-3">
-              <Link href="/releases">
-                <h2 className="transition-colors h-md hover:text-gray-300">
-                  Latest Releases
-                </h2>
-              </Link>
 
-              <Link
-                href="/releases"
-                className="text-xs opacity-80"
-              >
-                View all releases →
-              </Link>
-            </div>
+            {/* New Releases */}
+            {newReleases.length > 0 && (
+              <>
+                <div className="flex items-baseline justify-between mb-3">
+                  <Link href="/releases">
+                    <h2 className="transition-colors h-md hover:text-gray-300">
+                      New Releases
+                    </h2>
+                  </Link>
 
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
-              {latestReleases.map((release) => (
-                <ReleaseCard
-                  key={release.meta.slug}
-                  release={release.meta}
-                  series={
-                    seriesRegistry.find(
-                      (s) => s.id === release.meta.series_id
-                    ) ?? null
-                  }
-                  artists={artists.map(a => a.meta)}
-                />
-              ))}
-            </div>
+                  <Link
+                    href="/releases"
+                    className="text-xs opacity-80"
+                  >
+                    View all releases →
+                  </Link>
+                </div>
+
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
+                  {newReleases.map((release) => (
+                    <ReleaseCard
+                      key={release.meta.slug}
+                      release={release.meta}
+                      series={
+                        seriesRegistry.find(
+                          (s) => s.id === release.meta.series_id
+                        ) ?? null
+                      }
+                      artists={artists.map(a => a.meta)}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
+
+            {/* Coming Soon */}
+            {comingSoonReleases.length > 0 && (
+              <div className={newReleases.length > 0 ? "mt-12" : ""}>
+                <div className="flex items-baseline justify-between mb-3">
+                  <h2 className="h-md">Coming Soon</h2>
+                </div>
+
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
+                  {comingSoonReleases.map((release) => (
+                    <ReleaseCard
+                      key={release.meta.slug}
+                      release={release.meta}
+                      series={
+                        seriesRegistry.find(
+                          (s) => s.id === release.meta.series_id
+                        ) ?? null
+                      }
+                      artists={artists.map(a => a.meta)}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
+
           </div>
         </Section>
       )}

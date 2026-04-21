@@ -90,7 +90,8 @@ test.describe('Navigation', () => {
     await page.goto('/');
     
     // Check for main homepage sections
-    await expect(page.locator('h2:has-text("Latest Releases")')).toBeVisible();
+    await expect(page.locator('h2:has-text("New Releases")')).toBeVisible();
+    // Coming Soon section is conditional on upcoming releases existing in content — not tested here
     // Mixtapes section is currently hidden via flag
     await expect(page.locator('h2:has-text("Artists")')).toBeVisible();
   });

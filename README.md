@@ -4,7 +4,7 @@ A catalog system for underground electronic music.
 
 ## What SIGIL.ZERO Is
 
-SIGIL.ZERO operates as a record label and release platform for experimental electronic music. The label organizes its catalog through a series structure: modular collections that group releases by concept, aesthetic, or sonic territory.
+SIGIL.ZERO operates as a record label and release platform for dark, underground, and experimental electronic dance music. The label organizes its catalog through a series structure: modular collections that group releases by concept, aesthetic, or sonic territory.
 
 This is not a streaming service. It is an index. A map of recorded transmissions.
 
@@ -54,6 +54,12 @@ Add new content to these directories:
 - `/content/artists` — Artist profiles
 - `/content/series` — Series definitions
 
+Global site data lives in `/data`:
+
+- `/data/label.yml` — Label metadata
+- `/data/links.yml` — External link definitions
+- `/data/series.yml` — Series registry
+
 Each markdown file requires specific frontmatter fields. Run validation:
 
 ```bash
@@ -77,6 +83,7 @@ Run unit and integration tests:
 ```bash
 npm run test          # Watch mode
 npm run test:run      # Single run
+npm run test:ui       # Browser-based UI
 npm run test:coverage # With coverage report
 ```
 
@@ -86,6 +93,8 @@ Run end-to-end tests:
 npm run e2e          # Headless
 npm run e2e:ui       # Interactive mode
 npm run e2e:headed   # With browser visible
+npm run e2e:debug    # Debug mode
+npm run e2e:report   # Show last Playwright report
 ```
 
 ### Git Hooks
@@ -135,13 +144,13 @@ Output is written to `/docs`. The build process:
 
 Push to the `main` branch to trigger automatic deployment via GitHub Actions.
 
-CI pipeline runs on push/PR:
+CI pipeline runs on push/PR as three parallel jobs:
 
-```bash
-# Validate content and run tests/build
-npm run validate:content
-npm run ci:test
-```
+1. **Unit & Integration Tests** — runs `check-frontmatter`, `test:run`, and `test:coverage`
+2. **E2E Tests (Playwright)** — runs the full Playwright suite against a built server
+3. **Build Verification** — runs `npm run build` and confirms `docs/index.html` was produced
+
+All three jobs must pass for the CI status check to succeed.
 
 ## Project Status
 

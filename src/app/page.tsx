@@ -33,14 +33,19 @@ export default function HomePage() {
       icon: "/assets/images/icons/icon-instagram.svg",
     },
     {
-      label: "SoundCloud",
-      href: "https://soundcloud.com/sigil-zero",
-      icon: "/assets/images/icons/icon-soundcloud.svg",
+      label: "Spotify",
+      href: "https://open.spotify.com/playlist/1c8DRAbNmp9r93gduwIrVC",
+      icon: "/assets/images/icons/icon-spotify.svg",
     },
     {
       label: "Beatport",
       href: "https://www.beatport.com/label/sigilzero/361999",
       icon: "/assets/images/icons/icon-beatport.svg",
+    },
+    {
+      label: "SoundCloud",
+      href: "https://soundcloud.com/sigil-zero",
+      icon: "/assets/images/icons/icon-soundcloud.svg",
     },
     {
       label: "Facebook",

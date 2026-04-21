@@ -33,7 +33,7 @@ export default function PressKitPage() {
         <div className="px-4 container-sigil sm:px-6 lg:px-8">
           <h2 className="mb-4 h-md">Label Description</h2>
           <p className="mb-2">SIGIL.ZERO crafts dark, functional dance music with a focus on immersive, high-impact releases tailored for sound-system environments.</p>
-          <p className="text-sm opacity-80">Short: System-ready rave weapons from the darker side. Long: SIGIL.ZERO is dedicated to curating heavyweight dancefloor soundscapes — releasing limited-run records, championing DJs and live artists whose music commands physical spaces and transforms clubs into rituals.</p>
+          <p className="text-sm opacity-80">Short: System-ready rave tracks from the darker side. Long: SIGIL.ZERO is dedicated to curating heavyweight dancefloor soundscapes — releasing limited-run records, championing DJs and live artists whose music commands physical spaces and transforms clubs into rituals.</p>
         </div>
       </Section>
 

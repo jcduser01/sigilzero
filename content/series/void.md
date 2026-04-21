@@ -21,5 +21,5 @@ active: false
 ---
 
 **Void** is where SIGIL.ZERO bends the rules — broken rhythms, odd structures,
-cinematic tension, and leftfield experiments that live between club weapon and
+cinematic tension, and leftfield experiments that live between club cut and
 listening experience.

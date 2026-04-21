@@ -34,7 +34,7 @@ export default function AboutPage() {
                 industrial edges of techno and adjacent underground forms.
                 Releases prioritize DJ usability, physicality, and tension:
                 tracks that cut through a system, lock a room, and reward repeat
-                plays. If it doesn't function as a weapon, it doesn't ship.
+                plays. If it doesn't function as a club track, it doesn't ship.
               </p>
             </div>
 

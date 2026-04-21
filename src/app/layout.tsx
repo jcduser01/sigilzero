@@ -35,7 +35,7 @@ const spaceMono = Space_Mono({
 
 export const metadata: Metadata = {
   title: "SIGIL.ZERO",
-  description: "Dance music imprint for buy-on-sight rave weapons on the darker side.",
+  description: "Dance music imprint for buy-on-sight rave tracks on the darker side.",
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -77,7 +77,7 @@ export default function RootLayout({
                     </Link>
                   </h3>
                   <p className="text-sm text-gray-400">
-                    Dance music imprint for buy-on-sight rave weapons on the darker side.
+                    Dance music imprint for buy-on-sight rave tracks on the darker side.
                   </p>
                 </div>
 

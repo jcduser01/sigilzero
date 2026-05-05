@@ -13,7 +13,7 @@ remix_artists: []
 
 release_date: "2026-05-05"
 preorder_date: ""
-status: "upcoming"           # released | upcoming | promo-only
+status: "released"           # released | upcoming | promo-only
 
 genres:
   - "tech house"

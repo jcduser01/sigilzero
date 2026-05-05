@@ -198,29 +198,29 @@ link_groups:
     links:
       - name: "Spotify"
         platform: "spotify"
-        url: ""
+        url: "https://open.spotify.com/track/6Ux3QOJXW5rTkKLRpGg73k"
       - name: "Apple Music"
         platform: "apple music"
-        url: ""
+        url: "https://music.apple.com/us/album/bounce-ritual-single/1887343369"
       - name: "YouTube Music"
         platform: "youtube"
-        url: ""
+        url: "https://music.youtube.com/watch?v=AdSblAOoPBg"
       - name: "SoundCloud"
         platform: "soundcloud"
-        url: "https://soundcloud.com/djbellab/rec014"
+        url: "https://soundcloud.com/dyson-hope/bounce-ritual"
       - name: "Amazon Music"
         platform: "amazon music"
-        url: ""
+        url: "https://music.amazon.com/albums/B0GTN3BYY7"
 
   SIG007-purchase:
     label: "Buy Bounce Ritual"
     links:
       - name: "Beatport"
         platform: "beatport"
-        url: ""
+        url: "https://www.beatport.com/release/bounce-ritual/6586111"
       - name: "Bandcamp"
         platform: "bandcamp"
-        url: ""
+        url: "https://dysonhope.bandcamp.com/track/bounce-ritual"
 
   SIG007-other:
     label: "More Links"

@@ -43,6 +43,7 @@ export default function SpotifyPlayer({ trackUrl }: SpotifyPlayerProps) {
     <div className="w-full overflow-hidden rounded-lg">
       <iframe
         ref={iframeRef}
+        title="Spotify track player"
         src={`https://open.spotify.com/embed/track/${trackId}?utm_source=generator&theme=0`}
         width="100%"
         height="152"

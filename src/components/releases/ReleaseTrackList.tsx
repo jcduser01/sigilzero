@@ -1,8 +1,5 @@
-"use client";
-
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
-import SpotifyPlayer from "./SpotifyPlayer";
 
 type ArtistRef = {
   slug: string;
@@ -21,189 +18,103 @@ type TrackProps = {
   key?: string | null;
 };
 
+function parseKey(keyField: string | null | undefined): { musicalKey: string; camelot: string } {
+  if (!keyField) return { musicalKey: "—", camelot: "—" };
+  const parts = keyField.split(" | ");
+  return {
+    musicalKey: parts[0]?.trim() || "—",
+    camelot: parts[1]?.trim() || "—",
+  };
+}
+
+function ArtistLinks({ artists }: { artists: ArtistRef[] }) {
+  if (artists.length === 0) return <span className="text-muted">—</span>;
+  return (
+    <>
+      {artists.map((artist, idx) => (
+        <React.Fragment key={artist.slug}>
+          {idx > 0 && <span className="text-gray-600">, </span>}
+          <Link
+            href={`/artists/${artist.slug}`}
+            className="text-blue-400 hover:text-blue-300 transition-colors"
+          >
+            {artist.name}
+          </Link>
+        </React.Fragment>
+      ))}
+    </>
+  );
+}
+
 export default function ReleaseTrackList({
   tracks,
-  releaseTitle,
 }: {
   tracks: TrackProps[];
   releaseTitle?: string;
 }) {
-  const [currentTrackUrl, setCurrentTrackUrl] = useState<string | null>(null);
-
   const sorted = tracks
     .slice()
     .sort((a, b) => (a.position ?? 0) - (b.position ?? 0));
 
-  const mapped = sorted.map((t) => ({
-    id: t.id,
-    url: t.preview_url || "",
-    title: t.title,
-    artist: (t.artists || []).map(a => a.name).join(", ") || releaseTitle || "SIGIL.ZERO",
-    artists: t.artists || [],
-    remix_artists: t.remix_artists || [],
-    featured_artists: t.featured_artists || [],
-    bpm: t.bpm,
-    key: t.key,
-  }));
-
-  // Check if any tracks have preview URLs
-  const hasAnyPreviewUrls = mapped.some((t) => t.url);
-
   return (
     <section>
-      <div className="mb-4">
-        <h2 className="mb-3 h-md">Tracklist</h2>
-        
-        {/* Spotify Player - only show if there are preview URLs */}
-        {hasAnyPreviewUrls && <SpotifyPlayer trackUrl={currentTrackUrl} />}
-      </div>
+      <h2 className="mb-2 h-md">Track Data</h2>
+      <p className="mb-8 text-sm text-muted">
+        BPM and key reference for DJs. Use the player above to preview the release.
+      </p>
 
-      <ol className="overflow-hidden border border-gray-800 divide-y divide-gray-700 rounded-lg">
-        {mapped.map((t, i) => {
-          const isCurrent = currentTrackUrl === t.url;
-          const hasUrl = !!t.url;
-          
-          return (
-            <li 
-              key={t.id} 
-              onClick={() => hasUrl && setCurrentTrackUrl(t.url)}
-              className={`
-                group relative flex items-center justify-between gap-4 px-4 py-3 
-                transition-all duration-200
-                ${hasUrl ? 'cursor-pointer' : 'cursor-default'}
-                ${isCurrent 
-                  ? 'bg-gradient-to-r from-gray-800 to-gray-900 border-l-4 border-white shadow-lg' 
-                  : hasUrl
-                    ? 'bg-black hover:bg-gradient-to-r hover:from-gray-900 hover:to-black hover:border-l-2 hover:border-gray-500 hover:shadow-md'
-                    : 'bg-black opacity-50'
-                }
-              `}
-            >
-              <div className="flex items-center flex-1 min-w-0 gap-4">
-                <div className={`
-                  flex-shrink-0 w-6 text-xs font-mono text-center
-                  transition-colors duration-200
-                  ${isCurrent ? 'text-white font-bold' : hasUrl ? 'text-gray-500 group-hover:text-gray-300' : 'text-gray-600'}
-                `}>
-                  {i + 1}
-                </div>
-                
-                <div className="flex-1 min-w-0">
-                  <div className={`
-                    mb-1 text-sm font-medium truncate
-                    transition-colors duration-200
-                    ${isCurrent ? 'text-white' : hasUrl ? 'text-gray-200 group-hover:text-white' : 'text-gray-400'}
-                  `}>
+      <div className="overflow-x-auto border border-gray-800 rounded-lg">
+        <table className="w-full text-sm border-collapse">
+          <thead>
+            <tr className="border-b border-gray-800">
+              <th className="px-5 py-3 text-left text-label w-12">#</th>
+              <th className="px-5 py-3 text-left text-label">Track</th>
+              <th className="px-5 py-3 text-left text-label">Artists</th>
+              <th className="hidden px-5 py-3 text-right text-label sm:table-cell">BPM</th>
+              <th className="hidden px-5 py-3 text-left text-label md:table-cell">Key</th>
+              <th className="hidden px-5 py-3 text-left text-label md:table-cell">Camelot</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sorted.map((t) => {
+              const { musicalKey, camelot } = parseKey(t.key);
+              const seen = new Set<string>();
+              const allArtists = [
+                ...(t.artists || []),
+                ...(t.featured_artists || []),
+                ...(t.remix_artists || []),
+              ].filter((a) => {
+                if (seen.has(a.slug)) return false;
+                seen.add(a.slug);
+                return true;
+              });
+
+              return (
+                <tr key={t.id} className="border-b border-gray-800 last:border-0">
+                  <td className="px-5 py-5 font-mono text-xs text-gray-500 tabular-nums">
+                    {String(t.position ?? 0).padStart(2, "0")}
+                  </td>
+                  <td className="px-5 py-5 text-gray-200">
                     {t.title}
-                  </div>
-                  
-                  <div className="flex items-center gap-3 text-xs text-gray-400">
-                    <div className={`
-                      truncate transition-colors duration-200
-                      ${isCurrent ? 'text-gray-300' : hasUrl ? 'text-gray-400 group-hover:text-gray-300' : 'text-gray-500'}
-                    `}>
-                      {t.artists.length > 0 ? (
-                        t.artists.map((artist, idx) => (
-                          <React.Fragment key={artist.slug}>
-                            {idx > 0 && ", "}
-                            <Link
-                              href={`/artists/${artist.slug}`}
-                              className={`transition-colors ${hasUrl ? 'hover:text-white underline decoration-transparent hover:decoration-white' : ''}`}
-                              onClick={(e) => e.stopPropagation()}
-                            >
-                              {artist.name}
-                            </Link>
-                          </React.Fragment>
-                        ))
-                      ) : (
-                        <span>{t.artist}</span>
-                      )}
-                    </div>
-                    
-                    {t.featured_artists && t.featured_artists.length > 0 && (
-                      <div className="flex items-center gap-1 truncate">
-                        <span className="text-gray-600">·</span>
-                        <span>
-                           {'featuring'} {t.featured_artists.map((artist, idx) => (
-                            <React.Fragment key={artist.slug}>
-                              {idx > 0 && ", "}
-                              <Link
-                                href={`/artists/${artist.slug}`}
-                                className={`transition-colors ${hasUrl ? 'hover:text-white underline decoration-transparent hover:decoration-white' : ''}`}
-                                onClick={(e) => e.stopPropagation()}
-                              >
-                                {artist.name}
-                              </Link>
-                            </React.Fragment>
-                          ))}
-                        </span>
-                      </div>
-                    )}
-
-                    {t.remix_artists && t.remix_artists.length > 0 && (
-                      <div className="flex items-center gap-1 truncate">
-                        <span className="text-gray-600">·</span>
-                        <span>
-                          {t.remix_artists.map((artist, idx) => (
-                            <React.Fragment key={artist.slug}>
-                              {idx > 0 && ", "}
-                              <Link
-                                href={`/artists/${artist.slug}`}
-                                className={`transition-colors ${hasUrl ? 'hover:text-white underline decoration-transparent hover:decoration-white' : ''}`}
-                                onClick={(e) => e.stopPropagation()}
-                              >
-                                {artist.name}
-                              </Link>
-                            </React.Fragment>
-                          ))} remix
-                        </span>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-center flex-shrink-0 gap-3">
-                {t.bpm && (
-                  <div className={`
-                    hidden text-xs sm:block
-                    transition-colors duration-200
-                    ${isCurrent ? 'text-gray-400' : hasUrl ? 'text-gray-500 group-hover:text-gray-400' : 'text-gray-600'}
-                  `}>
-                    {t.bpm} BPM
-                  </div>
-                )}
-                {t.key && (
-                  <div className={`
-                    hidden text-xs md:block
-                    transition-colors duration-200
-                    ${isCurrent ? 'text-gray-400' : hasUrl ? 'text-gray-500 group-hover:text-gray-400' : 'text-gray-600'}
-                  `}>
-                    {t.key}
-                  </div>
-                )}
-                {isCurrent && hasUrl && (
-                  <div className="flex items-center justify-center w-5 h-5 animate-pulse">
-                    <svg className="w-4 h-4 text-white drop-shadow-lg" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M8 5v14l11-7z"/>
-                    </svg>
-                  </div>
-                )}
-                {!isCurrent && hasUrl && (
-                  <div className="flex items-center justify-center w-5 h-5 transition-opacity duration-200 opacity-0 group-hover:opacity-100">
-                    <svg className="w-3.5 h-3.5 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M8 5v14l11-7z"/>
-                    </svg>
-                  </div>
-                )}
-                {!hasUrl && (
-                  <div className="w-5 h-5"></div>
-                )}
-              </div>
-            </li>
-          );
-        })}
-      </ol>
+                  </td>
+                  <td className="px-5 py-5 text-gray-400">
+                    <ArtistLinks artists={allArtists} />
+                  </td>
+                  <td className="hidden px-5 py-5 font-mono text-xs text-right text-gray-500 tabular-nums sm:table-cell">
+                    {t.bpm ?? "—"}
+                  </td>
+                  <td className="hidden px-5 py-5 text-gray-400 md:table-cell">
+                    {musicalKey}
+                  </td>
+                  <td className="hidden px-5 py-5 font-mono text-xs text-gray-500 tabular-nums md:table-cell">
+                    {camelot}
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </section>
   );
 }

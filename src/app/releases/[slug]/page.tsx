@@ -10,6 +10,7 @@ import { loadLinkGroupById } from "../../../lib/content/load-links";
 import { getReleaseStatus } from "../../../lib/release-status";
 import ReleaseTrackList from "../../../components/releases/ReleaseTrackList";
 import StreamingLinks from "../../../components/releases/StreamingLinks";
+import SpotifyEmbed from "../../../components/releases/SpotifyEmbed";
 import PlaceholderImage from "../../../components/PlaceholderImage";
 import Section from "../../../components/Section";
 
@@ -53,6 +54,10 @@ export default async function ReleasePage({ params }: ParamsPromise) {
 
   // Get release status
   const status = getReleaseStatus(meta.release_date);
+
+  // Extract Spotify URL from the streaming link group for the embedded player
+  const spotifyUrl =
+    streamingGroup?.links.find((l) => l.platform === "spotify")?.url ?? "";
 
   return (
     <div>
@@ -110,6 +115,17 @@ export default async function ReleasePage({ params }: ParamsPromise) {
           </div>
         </div>
       </Section>
+
+      {spotifyUrl && (
+        <Section>
+          <div className="px-4 container-sigil sm:px-6 lg:px-8">
+            <SpotifyEmbed
+              spotifyUrl={spotifyUrl}
+              title={`Stream ${meta.title} on Spotify`}
+            />
+          </div>
+        </Section>
+      )}
 
       {meta.tracks.length > 0 && (
         <Section>

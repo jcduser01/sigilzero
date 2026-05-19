@@ -20,6 +20,10 @@ instagram_handle: "dj.bellab.ig"
 social:
   instagram: "https://instagram.com/dj.bellab.ig"
   soundcloud: "https://soundcloud.com/djbellab"
+  beatport: "https://www.beatport.com/artist/bellab/2325309"
+  spotify: "https://open.spotify.com/artist/6s4KIjFsAC7yVkUesMJIPS?si=Lz3t9V4pQceqSv9MKj58ew"
+  bandcamp: "https://djbellab.bandcamp.com/"
+  youtube: "https://www.youtube.com/channel/UCLJUR7fGlJYWq1pDsNtDwwg"
   other:
     - title: "Website"
       url: "https://djbellab.com"

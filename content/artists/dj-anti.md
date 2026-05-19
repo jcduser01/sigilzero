@@ -20,7 +20,7 @@ social:
   instagram: "https://www.instagram.com/alwaysantidj/"
   soundcloud: "https://soundcloud.com/anti-anti-1"
   spotify: "https://open.spotify.com/artist/4gIzOwCGU0LG8AVT5y7dkY?si=M5gSyzuYSD-_ScXtKbsxQQ"
-  other: []
+other: []
 
 booking_email: "bookings@sigilzero.com"
 

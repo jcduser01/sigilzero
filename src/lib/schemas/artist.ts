@@ -23,6 +23,7 @@ export const ArtistSchema = z.object({
       soundcloud: z.string().url().optional(),
       spotify: z.string().url().optional(),
       bandcamp: z.string().url().optional(),
+      beatport: z.string().url().optional(),
       youtube: z.string().url().optional(),
       other: z
         .array(

@@ -10,6 +10,7 @@ roles:
 
 location: "Austin, TX"
 for_fans_of:
+  - "Chris Lake"
   - "Enrico Sangiuliano"
   - "Rohaan"
 
@@ -22,6 +23,7 @@ social:
   spotify: "https://open.spotify.com/artist/61OXIOIVIfdZtFBZG4cY4J?si=5X7A_--ASsylyhxmlUF-sw"
   youtube: "https://youtube.com/@DysonHope"
   bandcamp: "https://dysonhope.bandcamp.com/"
+  beatport: "https://www.beatport.com/artist/dyson-hope/2262866"
   other:
     - title: "Website"
       url: "https://dysonhope.com"

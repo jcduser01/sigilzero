@@ -11,11 +11,12 @@ export default function ArtistSocialLinks({ social, className }: Props) {
 
   const entries: Array<{ key: string; name: string; url: string }> = [];
 
+  if (social.beatport) entries.push({ key: "beatport", name: "Beatport", url: social.beatport });
   if (social.instagram) entries.push({ key: "instagram", name: "Instagram", url: social.instagram });
-  if (social.soundcloud) entries.push({ key: "soundcloud", name: "SoundCloud", url: social.soundcloud });
   if (social.spotify) entries.push({ key: "spotify", name: "Spotify", url: social.spotify });
-  if (social.bandcamp) entries.push({ key: "bandcamp", name: "Bandcamp", url: social.bandcamp });
+  if (social.soundcloud) entries.push({ key: "soundcloud", name: "SoundCloud", url: social.soundcloud });
   if (social.youtube) entries.push({ key: "youtube", name: "YouTube", url: social.youtube });
+  if (social.bandcamp) entries.push({ key: "bandcamp", name: "Bandcamp", url: social.bandcamp });
 
   // Optionally include 'other' links as generic buttons
   if (Array.isArray(social.other)) {

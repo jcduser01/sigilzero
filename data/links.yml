@@ -232,29 +232,29 @@ link_groups:
     links:
       - name: "Spotify"
         platform: "spotify"
-        url: ""
+        url: "https://open.spotify.com/track/4d5G2kJ8easEvSOcHh8jeu"
       - name: "Apple Music"
         platform: "apple music"
-        url: ""
+        url: "https://music.apple.com/us/song/afterphase/6762695599"
       - name: "YouTube Music"
         platform: "youtube"
-        url: ""
+        url: "https://www.youtube.com/watch?v=Shbp1AIV4lE"
       - name: "SoundCloud"
         platform: "soundcloud"
-        url: ""
+        url: "https://soundcloud.com/dyson-hope/afterphase"
       - name: "Amazon Music"
         platform: "amazon music"
-        url: ""
+        url: "https://music.amazon.com/albums/B0GXXPCTF7"
 
   SIG008-purchase:
     label: "Buy Afterphase"
     links:
       - name: "Beatport"
         platform: "beatport"
-        url: ""
+        url: "https://www.beatport.com/release/afterphase/6836646"
       - name: "Bandcamp"
         platform: "bandcamp"
-        url: ""
+        url: "https://dysonhope.bandcamp.com/track/afterphase"
 
   SIG008-other:
     label: "More Links"

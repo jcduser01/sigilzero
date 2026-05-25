@@ -13,6 +13,7 @@ import MixtapeCard from "../components/cards/MixtapeCard";
 import ArtistCard from "../components/cards/ArtistCard";
 import SeriesCard from "../components/cards/SeriesCard";
 import Section from "../components/Section";
+import PageContextTracker from "../components/tracking/PageContextTracker";
 
 function sortByDateDesc<T extends { meta: { release_date?: string; date?: string } }>(
   items: T[],
@@ -97,6 +98,7 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col gap-0">
+      <PageContextTracker pageType="home" />
       {/* HERO */}
       <Section className="text-center home-hero-bg">
         <div className="relative z-10 px-4 container-sigil sm:px-6 lg:px-8">
@@ -138,6 +140,12 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 aria-label={link.label}
                 className="inline-flex items-center justify-center text-white transition-colors duration-200 border border-gray-600 rounded-full group h-9 w-9 hover:border-white hover:bg-white hover:text-black"
+                data-track="true"
+                data-entity="social"
+                data-action="click"
+                data-target="social_link"
+                data-platform={link.label.toLowerCase() === "beatport" ? "beatport" : link.label.toLowerCase()}
+                data-section="header"
               >
                 <img
                   src={link.icon}
@@ -317,6 +325,12 @@ export default function HomePage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium text-white transition-colors duration-200 border border-gray-600 rounded-full group hover:border-white hover:bg-white hover:text-black"
+                data-track="true"
+                data-entity="social"
+                data-action="click"
+                data-target="social_link"
+                data-platform={link.label.toLowerCase() === "beatport" ? "beatport" : link.label.toLowerCase()}
+                data-section="header"
               >
                 <img
                   src={link.icon}
@@ -347,7 +361,17 @@ export default function HomePage() {
               </h3>
               <p className="text-sm leading-relaxed text-gray-400">
                 Need a quick overview, key links, or assets? Start with the{" "}
-                <Link href="/press-kit" className="text-white hover:underline">press kit</Link>.
+                <Link
+                  href="/press-kit"
+                  className="text-white hover:underline"
+                  data-track="true"
+                  data-entity="press"
+                  data-action="click"
+                  data-target="press_kit"
+                  data-cta-type="press"
+                >
+                  press kit
+                </Link>.
               </p>
             </div>
           </div>

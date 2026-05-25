@@ -34,7 +34,18 @@ export default function ReleaseCard({ release, series, artists }: Props) {
   const artistNames = getArtistNames();
 
   return (
-    <Card href={`/releases/${release.slug}`}>
+    <Card
+      href={`/releases/${release.slug}`}
+      trackingAttrs={{
+        "data-track": "true",
+        "data-entity": "release",
+        "data-action": "click",
+        "data-target": "release_card",
+        "data-release-title": release.title,
+        "data-release-catalog-id": release.catalog_number,
+        "data-section": "release_grid",
+      }}
+    >
       <div>
         <div className="relative w-full overflow-hidden bg-sigil-grey-900 aspect-square">
           <PlaceholderImage

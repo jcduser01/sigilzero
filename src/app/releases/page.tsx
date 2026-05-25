@@ -6,6 +6,7 @@ import { loadSeriesRegistry } from "../../lib/content/load-series-registry";
 import { loadAllArtists } from "../../lib/content/load-artists";
 import { hasActiveSeries } from "../../lib/content/load-series";
 import ReleasesCatalog from "./ReleasesCatalog";
+import PageContextTracker from "../../components/tracking/PageContextTracker";
 
 function ReleasesCatalogContent() {
   const releases = loadAllReleases();
@@ -15,12 +16,15 @@ function ReleasesCatalogContent() {
   const showSeriesFilter = hasActiveSeries();
 
   return (
-    <ReleasesCatalog
-      releases={activeReleases}
-      seriesRegistry={seriesRegistry}
-      artists={artists}
-      showSeriesFilter={showSeriesFilter}
-    />
+    <>
+      <PageContextTracker pageType="releases_index" />
+      <ReleasesCatalog
+        releases={activeReleases}
+        seriesRegistry={seriesRegistry}
+        artists={artists}
+        showSeriesFilter={showSeriesFilter}
+      />
+    </>
   );
 }
 

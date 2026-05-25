@@ -1,6 +1,8 @@
 type Props = {
   spotifyUrl: string;
   title: string;
+  releaseTitle?: string;
+  releaseCatalogId?: string;
 };
 
 function buildEmbedUrl(spotifyUrl: string): string | null {
@@ -15,7 +17,7 @@ function buildEmbedUrl(spotifyUrl: string): string | null {
   }
 }
 
-export default function SpotifyEmbed({ spotifyUrl, title }: Props) {
+export default function SpotifyEmbed({ spotifyUrl, title, releaseTitle, releaseCatalogId }: Props) {
   const embedUrl = buildEmbedUrl(spotifyUrl);
   if (!embedUrl) return null;
 
@@ -30,16 +32,26 @@ export default function SpotifyEmbed({ spotifyUrl, title }: Props) {
   }
 
   return (
-    <iframe
-      title={title}
-      src={embedUrl}
-      width="100%"
-      height={height}
-      className="rounded-xl"
-      frameBorder="0"
-      allowFullScreen
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-      loading="lazy"
-    />
+    <div
+      data-track="true"
+      data-entity="embed"
+      data-action="play_intent"
+      data-target="spotify_embed"
+      data-platform="spotify"
+      data-release-title={releaseTitle}
+      data-release-catalog-id={releaseCatalogId}
+    >
+      <iframe
+        title={title}
+        src={embedUrl}
+        width="100%"
+        height={height}
+        className="rounded-xl"
+        frameBorder="0"
+        allowFullScreen
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+      />
+    </div>
   );
 }

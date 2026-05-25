@@ -37,6 +37,12 @@ function ArtistLinks({ artists }: { artists: ArtistRef[] }) {
           <Link
             href={`/artists/${artist.slug}`}
             className="text-blue-400 hover:text-blue-300 transition-colors"
+            data-track="true"
+            data-entity="artist"
+            data-action="click"
+            data-target="artist_link"
+            data-artist-name={artist.name}
+            data-section="tracklist"
           >
             {artist.name}
           </Link>

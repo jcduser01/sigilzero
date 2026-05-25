@@ -8,6 +8,7 @@ import LogoGrid from "../../components/press/LogoGrid";
 import ArtistAssetCard from "../../components/press/ArtistAssetCard";
 import FeaturedReleaseCard from "../../components/press/FeaturedReleaseCard";
 import Section from "../../components/Section";
+import PageContextTracker from "../../components/tracking/PageContextTracker";
 
 export const metadata = {
   title: "Press Kit - SIGIL.ZERO",
@@ -22,6 +23,7 @@ export default function PressKitPage() {
 
   return (
     <div className="flex flex-col gap-0">
+      <PageContextTracker pageType="press" />
       <Section className="text-center">
         <div className="px-4 container-sigil sm:px-6 lg:px-8">
        <h1 className="mb-6 text-center text-white h-display" data-testid="presskit-page-title">Press Kit</h1>
@@ -45,7 +47,18 @@ export default function PressKitPage() {
           {label.social?.instagram && (
             <li>
               Instagram: {" "}
-              <a href={label.social.instagram} target="_blank" rel="noopener noreferrer" className="underline">
+              <a
+                href={label.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+                data-track="true"
+                data-entity="social"
+                data-action="click"
+                data-target="social_link"
+                data-platform="instagram"
+                data-section="footer"
+              >
                 {label.social.instagram}
               </a>
             </li>
@@ -53,7 +66,18 @@ export default function PressKitPage() {
           {label.social?.soundcloud && (
             <li>
               SoundCloud: {" "}
-              <a href={label.social.soundcloud} target="_blank" rel="noopener noreferrer" className="underline">
+              <a
+                href={label.social.soundcloud}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+                data-track="true"
+                data-entity="social"
+                data-action="click"
+                data-target="social_link"
+                data-platform="soundcloud"
+                data-section="footer"
+              >
                 {label.social.soundcloud}
               </a>
             </li>
@@ -61,7 +85,18 @@ export default function PressKitPage() {
           {label.social?.spotify && (
             <li>
               Spotify: {" "}
-              <a href={label.social.spotify} target="_blank" rel="noopener noreferrer" className="underline">
+              <a
+                href={label.social.spotify}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+                data-track="true"
+                data-entity="social"
+                data-action="click"
+                data-target="social_link"
+                data-platform="spotify"
+                data-section="footer"
+              >
                 {label.social.spotify}
               </a>
             </li>
@@ -128,7 +163,7 @@ export default function PressKitPage() {
         <div className="px-4 container-sigil sm:px-6 lg:px-8">
           <h2 className="mb-4 h-md">Contact</h2>
           <p className="text-sm">Press: <a href="mailto:press@sigilzero.com" className="underline">press@sigilzero.com</a></p>
-          <p className="mt-2 text-sm">Instagram: <a href="https://instagram.com/SIGIL.ZERO.RECORDS" target="_blank" rel="noopener noreferrer" className="underline">@SIGIL.ZERO.RECORDS</a></p>
+          <p className="mt-2 text-sm">Instagram: <a href="https://instagram.com/SIGIL.ZERO.RECORDS" target="_blank" rel="noopener noreferrer" className="underline" data-track="true" data-entity="social" data-action="click" data-target="social_link" data-platform="instagram" data-section="footer">@SIGIL.ZERO.RECORDS</a></p>
         </div>
       </Section>
     </div>

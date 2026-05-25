@@ -1,6 +1,7 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
 import Link from "next/link";
+import Script from "next/script";
 import { Della_Respira, Mulish, Space_Mono } from "next/font/google";
 import "./globals.css";
 import AudioProvider from "../components/audio/AudioProvider";
@@ -48,6 +49,8 @@ export const metadata: Metadata = {
   },
 };
 
+const GTM_CONTAINER_ID = "GTM-TLP35C5T";
+
 export default function RootLayout({
   children,
 }: {
@@ -57,7 +60,25 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={`${della.variable} ${mulish.variable} ${spaceMono.variable}`}>
-      <body>
+      <head>
+        <Script id="gtm-init" strategy="beforeInteractive">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${GTM_CONTAINER_ID}');`}
+        </Script>
+      </head>
+      <body data-page-type="unknown" data-release-title="" data-release-catalog-id="" data-artist-name="">
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_CONTAINER_ID}`}
+            height="0"
+            width="0"
+            className="hidden invisible"
+            title="Google Tag Manager"
+          />
+        </noscript>
         <AudioProvider>
           <Navigation showSeries={showSeries} />
           <PageNavigation />
@@ -113,7 +134,15 @@ export default function RootLayout({
                       </a>
                     </li>
                     <li>
-                      <a href="/press-kit" className="text-gray-400 hover:text-white">
+                      <a
+                        href="/press-kit"
+                        className="text-gray-400 hover:text-white"
+                        data-track="true"
+                        data-entity="press"
+                        data-action="click"
+                        data-target="press_kit"
+                        data-cta-type="press"
+                      >
                         Press Kit
                       </a>
                     </li>
@@ -130,6 +159,12 @@ export default function RootLayout({
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="text-gray-400 hover:text-white"
+                        data-track="true"
+                        data-entity="social"
+                        data-action="click"
+                        data-target="social_link"
+                        data-platform="instagram"
+                        data-section="footer"
                       >
                         Instagram
                       </a>
@@ -140,6 +175,12 @@ export default function RootLayout({
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="text-gray-400 hover:text-white"
+                        data-track="true"
+                        data-entity="social"
+                        data-action="click"
+                        data-target="social_link"
+                        data-platform="soundcloud"
+                        data-section="footer"
                       >
                         SoundCloud
                       </a>
@@ -171,6 +212,7 @@ export default function RootLayout({
             </div>
           </footer>
         </AudioProvider>
+        <script src="/assets/js/tracking.js" defer></script>
       </body>
     </html>
   );

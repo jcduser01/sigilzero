@@ -1,10 +1,12 @@
 // src/app/about/page.tsx
 
 import Section from "../../components/Section";
+import PageContextTracker from "../../components/tracking/PageContextTracker";
 
 export default function AboutPage() {
   return (
     <div className="min-h-[50vh]">
+      <PageContextTracker pageType="about" />
       <div className="flex flex-col gap-0">
         <Section className="text-center">
           <div className="px-4 container-sigil sm:px-6 lg:px-8">

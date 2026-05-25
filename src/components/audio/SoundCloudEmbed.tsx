@@ -8,6 +8,8 @@ type SoundCloudEmbedProps = {
   visual?: boolean;
   autoPlay?: boolean;
   className?: string;
+  releaseTitle?: string;
+  releaseCatalogId?: string;
 };
 
 /**
@@ -42,18 +44,37 @@ export default function SoundCloudEmbed({
   visual = true,
   autoPlay = false,
   className = "",
+  releaseTitle,
+  releaseCatalogId,
 }: SoundCloudEmbedProps) {
   const embedUrl = buildSoundCloudEmbedUrl(url, visual, autoPlay);
   const height = visual ? 400 : 166;
 
   return (
-    <div className={`w-full ${className}`}>
+    <div
+      className={`w-full ${className}`}
+      data-track="true"
+      data-entity="embed"
+      data-action="play_intent"
+      data-target="soundcloud_embed"
+      data-platform="soundcloud"
+      data-release-title={releaseTitle}
+      data-release-catalog-id={releaseCatalogId}
+    >
       <div className="mb-4">
         <a
           href={url}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-black bg-white rounded hover:bg-sigil-grey-100 transition-colors"
+          data-track="true"
+          data-entity="release"
+          data-action="click"
+          data-target="streaming_link"
+          data-platform="soundcloud"
+          data-release-title={releaseTitle}
+          data-release-catalog-id={releaseCatalogId}
+          data-cta-type="stream"
         >
           <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z"/>

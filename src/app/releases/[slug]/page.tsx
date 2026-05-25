@@ -13,6 +13,7 @@ import StreamingLinks from "../../../components/releases/StreamingLinks";
 import SpotifyEmbed from "../../../components/releases/SpotifyEmbed";
 import PlaceholderImage from "../../../components/PlaceholderImage";
 import Section from "../../../components/Section";
+import PageContextTracker from "../../../components/tracking/PageContextTracker";
 
 type ParamsPromise = {
   params: Promise<{
@@ -61,6 +62,11 @@ export default async function ReleasePage({ params }: ParamsPromise) {
 
   return (
     <div>
+      <PageContextTracker
+        pageType="release_detail"
+        releaseTitle={meta.title}
+        releaseCatalogId={meta.catalog_number}
+      />
       <Section>
         <div className="px-4 container-sigil sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
@@ -110,6 +116,8 @@ export default async function ReleasePage({ params }: ParamsPromise) {
                 streamingGroup={streamingGroup}
                 purchaseGroup={purchaseGroup}
                 disabled={status.type === "coming-soon"}
+                releaseTitle={meta.title}
+                releaseCatalogId={meta.catalog_number}
               />
             </div>
           </div>
@@ -122,6 +130,8 @@ export default async function ReleasePage({ params }: ParamsPromise) {
             <SpotifyEmbed
               spotifyUrl={spotifyUrl}
               title={`Stream ${meta.title} on Spotify`}
+              releaseTitle={meta.title}
+              releaseCatalogId={meta.catalog_number}
             />
           </div>
         </Section>

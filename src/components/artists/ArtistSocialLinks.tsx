@@ -45,6 +45,12 @@ export default function ArtistSocialLinks({ social, className }: Props) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 text-sm transition-colors border border-gray-700 rounded-lg hover:bg-sigil-grey-800 hover:border-gray-600"
               title={item.name}
+              data-track="true"
+              data-entity="social"
+              data-action="click"
+              data-target="social_link"
+              data-platform={item.key}
+              data-section="artist_profile"
             >
               {logo ? (
                 <div className="flex items-center justify-center">{logo}</div>

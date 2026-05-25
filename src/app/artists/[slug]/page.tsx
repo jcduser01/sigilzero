@@ -11,6 +11,7 @@ import Section from "../../../components/Section";
 import ReleaseCard from "../../../components/cards/ReleaseCard";
 import MixtapeCard from "../../../components/cards/MixtapeCard";
 import ArtistSocialLinks from "../../../components/artists/ArtistSocialLinks";
+import PageContextTracker from "../../../components/tracking/PageContextTracker";
 
 type ParamsPromise = {
   params: Promise<{
@@ -62,6 +63,7 @@ export default async function ArtistPage({ params }: ParamsPromise) {
 
   return (
     <div>
+      <PageContextTracker pageType="artist_detail" artistName={meta.name} />
       <Section className="relative overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">

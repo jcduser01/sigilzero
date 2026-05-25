@@ -5,12 +5,32 @@ type StreamingLinksProps = {
   streamingGroup?: LinkGroup | null;
   purchaseGroup?: LinkGroup | null;
   disabled?: boolean;
+  releaseTitle?: string;
+  releaseCatalogId?: string;
 };
+
+function normalizePlatform(platformRaw: string): string {
+  const value = platformRaw.toLowerCase().trim();
+
+  if (value.includes("spotify")) return "spotify";
+  if (value.includes("apple")) return "apple_music";
+  if (value.includes("youtube music")) return "youtube_music";
+  if (value.includes("youtube")) return "youtube";
+  if (value.includes("soundcloud")) return "soundcloud";
+  if (value.includes("beatport")) return "beatport";
+  if (value.includes("bandcamp")) return "bandcamp";
+  if (value.includes("traxsource")) return "traxsource";
+  if (value.includes("juno")) return "junodownload";
+
+  return value.replace(/\s+/g, "_");
+}
 
 export default function StreamingLinks({
   streamingGroup,
   purchaseGroup,
   disabled = false,
+  releaseTitle,
+  releaseCatalogId,
 }: StreamingLinksProps) {
   // When disabled, include all links (even empty URLs) to show the full button set
   const streamingLinks = disabled
@@ -62,6 +82,14 @@ export default function StreamingLinks({
                   rel="noopener noreferrer"
                   className={activeButtonClass}
                   title={link.name}
+                  data-track="true"
+                  data-entity="release"
+                  data-action="click"
+                  data-target="streaming_link"
+                  data-platform={normalizePlatform(link.platform?.toLowerCase() || link.name)}
+                  data-release-title={releaseTitle}
+                  data-release-catalog-id={releaseCatalogId}
+                  data-cta-type="stream"
                 >
                   {inner}
                 </a>
@@ -104,6 +132,14 @@ export default function StreamingLinks({
                   rel="noopener noreferrer"
                   className={activeButtonClass}
                   title={link.name}
+                  data-track="true"
+                  data-entity="release"
+                  data-action="click"
+                  data-target="store_link"
+                  data-platform={normalizePlatform(link.platform?.toLowerCase() || link.name)}
+                  data-release-title={releaseTitle}
+                  data-release-catalog-id={releaseCatalogId}
+                  data-cta-type="buy"
                 >
                   {inner}
                 </a>

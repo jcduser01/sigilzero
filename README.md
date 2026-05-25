@@ -311,6 +311,12 @@ CI pipeline runs on push/PR as three parallel jobs:
 
 All three jobs must pass for the CI status check to succeed.
 
+GitHub Actions policy in this repository:
+
+1. Workflows use `actions/checkout@v5`, `actions/setup-node@v5`, and `actions/upload-artifact@v5`.
+2. Build/test runtime is pinned via `setup-node` to Node `22` for Next.js stability.
+3. Workflows set `FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true` to proactively validate JavaScript action runtime compatibility.
+
 ## Project Status
 
 Version 1.0 publicly released.

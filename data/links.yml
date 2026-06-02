@@ -266,29 +266,29 @@ link_groups:
     links:
       - name: "Spotify"
         platform: "spotify"
-        url: ""
+        url: "https://open.spotify.com/track/1Mf5ctX2YOynHmY6mtpDqA?si=dce39204e70a46a7"
       - name: "Apple Music"
         platform: "apple music"
-        url: ""
+        url: "https://music.apple.com/us/song/drums-in-the-deep/1893114388"
       - name: "YouTube Music"
         platform: "youtube"
-        url: ""
+        url: "https://music.youtube.com/watch?v=GBEDoNNxFGk&si=GqP_VDvKCRsYcT36"
       - name: "SoundCloud"
         platform: "soundcloud"
-        url: ""
+        url: "https://soundcloud.com/dyson-hope/drums-in-the-deep"
       - name: "Amazon Music"
         platform: "amazon music"
-        url: ""
+        url: "https://music.amazon.com/tracks/B0GX2PB5YR"
 
   SIG009-purchase:
     label: "Buy Drums in the Deep"
     links:
       - name: "Beatport"
         platform: "beatport"
-        url: ""
+        url: "https://www.beatport.com/release/drums-in-the-deep/6801128"
       - name: "Bandcamp"
         platform: "bandcamp"
-        url: ""
+        url: "https://dysonhope.bandcamp.com/track/drums-in-the-deep"
 
   SIG009-other:
     label: "More Links"

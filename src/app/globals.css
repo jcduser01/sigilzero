@@ -72,13 +72,13 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.6) 100%);
+    background-color: rgba(0, 0, 0, 0.5);
     pointer-events: none;
     z-index: 0;
   }
 
   .btn {
-    @apply inline-flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-full;
+    @apply inline-flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors duration-200;
   }
 
   .btn-primary {
@@ -86,7 +86,7 @@
   }
 
   .btn-secondary {
-    @apply text-gray-100 border border-gray-600 hover:border-white hover:text-white;
+    @apply text-gray-100 border border-[#444444] hover:border-white hover:text-white;
   }
 
   .btn-accent {
@@ -94,7 +94,7 @@
   }
 
   .card {
-    @apply overflow-hidden transition-all duration-200 border border-gray-800 rounded-lg hover:border-gray-700 hover:shadow-lg;
+    @apply overflow-hidden transition-all duration-200 border border-[#222222] hover:border-[#333333] hover:shadow-lg;
     background-color: #0f0f0f;
   }
 
@@ -125,6 +125,15 @@
 
   .mono {
     font-family: var(--font-mono, monospace);
+  }
+
+  .catalog-number {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.625rem;
+    letter-spacing: 0.15em;
+    color: #888888;
+    border-left: 2px solid var(--catalog-accent, #888888);
+    padding-left: 8px;
   }
 
   .text-label {

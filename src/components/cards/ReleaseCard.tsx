@@ -58,10 +58,10 @@ export default function ReleaseCard({ release, series, artists }: Props) {
             className="object-cover"
           />
           {status.type && (
-            <div className={`absolute top-3 right-3 px-3 py-1 text-xs font-medium border rounded ${
+            <div className={`absolute top-3 right-3 px-3 py-1 text-xs font-medium border ${
               status.type === "coming-soon"
-                ? "border-gray-400 text-gray-300 bg-black/40 backdrop-blur-sm"
-                : "border-gray-300 text-white bg-black/40 backdrop-blur-sm"
+                ? "border-[#888888] text-[#aaaaaa] bg-black/40 backdrop-blur-sm"
+                : "border-[#aaaaaa] text-white bg-black/40 backdrop-blur-sm"
             }`}>
               {status.label}
             </div>
@@ -69,7 +69,10 @@ export default function ReleaseCard({ release, series, artists }: Props) {
         </div>
 
         <div className="p-3 sm:p-4">
-          <div className="mb-2 text-label">
+          <div
+            className="mb-2 catalog-number"
+            style={{ '--catalog-accent': series?.accent_hex ?? '#888888' } as React.CSSProperties}
+          >
             {release.catalog_number}
           </div>
 
@@ -78,7 +81,7 @@ export default function ReleaseCard({ release, series, artists }: Props) {
           </h3>
 
           {artistNames && (
-            <div className="mb-2 text-sm text-gray-300">
+            <div className="mb-2 text-sm text-[#aaaaaa]">
               {artistNames}
             </div>
           )}

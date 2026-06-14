@@ -27,6 +27,7 @@ export default {
           },
           red: '#ff0000',
           crimson: '#d32f2f',
+          rose: '#FFBABA',
         },
       },
       typography: {

@@ -196,7 +196,7 @@ export default function ReleasesCatalog({
             placeholder="Search titles, catalog #, tracks, or artists..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="w-full px-3 py-2 text-sm border border-gray-700 rounded bg-sigil-grey-950 focus:outline-none focus:border-gray-600"
+            className="w-full px-3 py-2 text-sm border border-[#333333] bg-sigil-grey-950 focus:outline-none focus:border-[#444444]"
           />
         </div>
 
@@ -207,7 +207,7 @@ export default function ReleasesCatalog({
             aria-expanded={filtersOpen}
             aria-controls="releases-filters"
             onClick={() => setFiltersOpen((o) => !o)}
-            className="flex items-center gap-2 text-xs font-medium tracking-wide text-gray-400 uppercase hover:text-white"
+            className="flex items-center gap-2 text-xs font-medium tracking-wide text-[#888888] uppercase hover:text-white"
           >
             <FilterIcon className="w-5 h-5" />
             {filtersOpen ? "Hide Filters" : "More Filters"}
@@ -217,7 +217,7 @@ export default function ReleasesCatalog({
         {/* Collapsible filters container */}
         <div
           id="releases-filters"
-          className={`${filtersOpen ? "" : "hidden"} p-3 mb-4 bg-sigil-grey-950 border border-gray-800 rounded`}
+          className={`${filtersOpen ? "" : "hidden"} p-3 mb-4 bg-sigil-grey-950 border border-[#222222]`}
         >
           {/* Dropdown filters - Row 1 */}
           <div className="grid grid-cols-1 gap-2 mb-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -227,7 +227,7 @@ export default function ReleasesCatalog({
                 aria-label="Filter by series"
                 value={seriesId}
                 onChange={(e) => setSeriesId(e.target.value)}
-                className="px-2 py-1 text-sm border border-gray-700 rounded bg-sigil-grey-950 focus:outline-none focus:border-gray-600"
+                className="px-2 py-1 text-sm border border-[#333333] bg-sigil-grey-950 focus:outline-none focus:border-[#444444]"
               >
                 <option value="all">All series</option>
                 {seriesRegistry.map((s) => (
@@ -243,7 +243,7 @@ export default function ReleasesCatalog({
               aria-label="Filter by type"
               value={type}
               onChange={(e) => setType(e.target.value)}
-              className="px-2 py-1 text-sm border border-gray-700 rounded bg-sigil-grey-950 focus:outline-none focus:border-gray-600"
+              className="px-2 py-1 text-sm border border-[#333333] bg-sigil-grey-950 focus:outline-none focus:border-[#444444]"
             >
               <option value="all">All types</option>
               {allTypes.map((t) => (
@@ -258,7 +258,7 @@ export default function ReleasesCatalog({
               aria-label="Filter by artist"
               value={artistId}
               onChange={(e) => setArtistId(e.target.value)}
-              className="px-2 py-1 text-sm border border-gray-700 rounded bg-sigil-grey-950 focus:outline-none focus:border-gray-600"
+              className="px-2 py-1 text-sm border border-[#333333] bg-sigil-grey-950 focus:outline-none focus:border-[#444444]"
             >
               <option value="all">All artists</option>
               {allArtists.map((a) => (
@@ -273,7 +273,7 @@ export default function ReleasesCatalog({
               aria-label="Filter by year"
               value={year}
               onChange={(e) => setYear(e.target.value)}
-              className="px-2 py-1 text-sm border border-gray-700 rounded bg-sigil-grey-950 focus:outline-none focus:border-gray-600"
+              className="px-2 py-1 text-sm border border-[#333333] bg-sigil-grey-950 focus:outline-none focus:border-[#444444]"
             >
               <option value="all">All years</option>
               {allYears.map((y) => (
@@ -291,7 +291,7 @@ export default function ReleasesCatalog({
               placeholder="Min BPM"
               value={bpmMin}
               onChange={(e) => setBpmMin(e.target.value)}
-              className="px-2 py-1 text-sm border border-gray-700 rounded bg-sigil-grey-950 focus:outline-none focus:border-gray-600"
+              className="px-2 py-1 text-sm border border-[#333333] bg-sigil-grey-950 focus:outline-none focus:border-[#444444]"
               min={MIN_BPM}
               max={MAX_BPM}
             />
@@ -300,7 +300,7 @@ export default function ReleasesCatalog({
               placeholder="Max BPM"
               value={bpmMax}
               onChange={(e) => setBpmMax(e.target.value)}
-              className="px-2 py-1 text-sm border border-gray-700 rounded bg-sigil-grey-950 focus:outline-none focus:border-gray-600"
+              className="px-2 py-1 text-sm border border-[#333333] bg-sigil-grey-950 focus:outline-none focus:border-[#444444]"
               min={MIN_BPM}
               max={MAX_BPM}
             />
@@ -309,7 +309,7 @@ export default function ReleasesCatalog({
           {/* Genre pills */}
           {allGenres.length > 0 && (
             <div className="mb-4">
-              <label className="block mb-2 text-xs font-medium tracking-wide text-gray-400 uppercase">
+              <label className="block mb-2 text-xs font-medium tracking-wide text-[#888888] uppercase">
                 Genres
               </label>
               <div className="flex flex-wrap gap-2">
@@ -317,10 +317,10 @@ export default function ReleasesCatalog({
                   <button
                     key={g}
                     onClick={() => toggleGenre(g)}
-                    className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                    className={`px-3 py-1 text-xs font-medium transition-colors ${
                       genres.includes(g)
                         ? "bg-white text-black border border-white"
-                        : "bg-sigil-grey-900 text-gray-300 border border-gray-700 hover:border-gray-600"
+                        : "bg-sigil-grey-900 text-[#aaaaaa] border border-[#333333] hover:border-[#444444]"
                     }`}
                   >
                     {g}
@@ -333,7 +333,7 @@ export default function ReleasesCatalog({
           {/* Mood pills */}
           {allMoods.length > 0 && (
             <div className="mb-2">
-              <label className="block mb-2 text-xs font-medium tracking-wide text-gray-400 uppercase">
+              <label className="block mb-2 text-xs font-medium tracking-wide text-[#888888] uppercase">
                 Moods
               </label>
               <div className="flex flex-wrap gap-2">
@@ -341,10 +341,10 @@ export default function ReleasesCatalog({
                   <button
                     key={m}
                     onClick={() => toggleMood(m)}
-                    className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                    className={`px-3 py-1 text-xs font-medium transition-colors ${
                       moods.includes(m)
                         ? "bg-white text-black border border-white"
-                        : "bg-sigil-grey-900 text-gray-300 border border-gray-700 hover:border-gray-600"
+                        : "bg-sigil-grey-900 text-[#aaaaaa] border border-[#333333] hover:border-[#444444]"
                     }`}
                   >
                     {m}
@@ -357,15 +357,15 @@ export default function ReleasesCatalog({
 
       {/* Active filters display and clear button */}
       {isFiltered && (
-        <div className="p-3 mb-6 border border-gray-800 rounded bg-sigil-grey-900">
+        <div className="p-3 mb-6 border border-[#222222] bg-sigil-grey-900">
           <div className="flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center">
-            <div className="text-sm text-gray-300">
+            <div className="text-sm text-[#aaaaaa]">
               Showing <span className="font-semibold">{filtered.length}</span> of{" "}
               <span className="font-semibold">{releases.length}</span> releases
             </div>
             <button
               onClick={clearFilters}
-              className="px-3 py-1 text-sm text-white transition-colors border border-gray-700 rounded bg-sigil-grey-800 hover:bg-sigil-grey-700"
+              className="px-3 py-1 text-sm text-white transition-colors border border-[#333333] bg-sigil-grey-800 hover:bg-sigil-grey-700"
             >
               Clear filters
             </button>
@@ -374,7 +374,7 @@ export default function ReleasesCatalog({
       )}
 
       {/* Grid */}
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" style={{ gap: '1px', background: '#333333' }}>
         {filtered.map(({ meta }) => {
           const series = seriesById[meta.series_id] ?? null;
           return <ReleaseCard key={meta.id} release={meta} series={series} artists={artists.map(a => a.meta)} />;

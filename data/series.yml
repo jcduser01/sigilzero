@@ -23,7 +23,8 @@
   description: "Groove-forward house and techno."
   order: 2
   color_hex: "#D32F2F"
-  accent_hex: "#FFBABA"
+  accent_hex: "#D32F2F"
+  light_accent_hex: "#FFBABA"
 
 - id: "void"
   slug: "void"
